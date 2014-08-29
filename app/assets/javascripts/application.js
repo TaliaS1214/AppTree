@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require handlebars
+//= require_self
 //= require_tree ./backbone/routers
 //= require_tree ./backbone/models
 //= require_tree ./backbone/collections
@@ -22,6 +23,14 @@
 //= require_tree ./templates
 //= require foundation
 //= require_tree .
+
+Discovr = {
+  Models:      {},
+  Collections: {},
+  Views:       {},
+  Routers:     {}
+};
+
 $(function() {
   $(document).foundation();
 });

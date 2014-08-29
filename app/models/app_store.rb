@@ -6,10 +6,11 @@ module AppStore
     app_details_array = []
     results.each do |app|
       app_details_array << {
+        itunes_id: app['trackId'],
         name: app['trackName'],
-        tags: app['genres'],
+        tags: app['genres'].join(','),
         screenshot_urls: app['screenshotUrls'].join(','),
-        release_date: DateTime.parse(app['releaseDate']).strftime('%m/%d/%d'),
+        release_date: DateTime.parse(app['releaseDate']).strftime('%m/%d/%Y'),
         creator: app['artistName'],
         price: app['price'],
         small_avatar_url: app['artworkUrl60'],

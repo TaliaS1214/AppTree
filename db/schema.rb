@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829003310) do
+ActiveRecord::Schema.define(version: 20140829211838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140829003310) do
   create_table "apps", force: true do |t|
     t.string   "name"
     t.string   "tags"
-    t.string   "screenshot_urls"
+    t.text     "screenshot_urls"
     t.string   "release_date"
     t.string   "creator"
     t.integer  "price"
@@ -29,12 +29,35 @@ ActiveRecord::Schema.define(version: 20140829003310) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "itunes_id"
+    t.integer  "upvote_count"
+    t.integer  "popularity_score"
+  end
+
+  create_table "apps_genres", force: true do |t|
+    t.integer "app_id"
+    t.integer "genre_id"
+  end
+
+  create_table "bookmarks", force: true do |t|
+    t.integer "user_id"
+    t.integer "app_id"
   end
 
   create_table "genres", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+  end
+
+  create_table "genres_users", force: true do |t|
+    t.integer "genre_id"
+    t.integer "user_id"
+  end
+
+  create_table "upvotes", force: true do |t|
+    t.integer "app_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|

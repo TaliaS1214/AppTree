@@ -8,6 +8,12 @@
 # user = CreateAdminService.new.call
 # puts 'CREATED ADMIN USER: ' << user.email
 
+users = [
+  { name: 'Najee Garder', email: 'najee.s.gardner@gmail.com', password: 'qwertyui', password_confirmation: 'qwertyui', phone_number: '1234567890' },
+  { name: 'Sean Talia', email: 'example@gmail.com', password: 'qwertyui', password_confirmation: 'qwertyui', phone_number: '1234567890' }
+]
+
+
 genre_names = ["Books", "Business", "Catalogs", "Education", "Entertainment",
   "Finance", "Food & Drink", "Games", "Health & Fitness", "Lifestyle", "Medical",
   "Music", "Navigation", "News", "Newsstand", "Photo & Video", "Productivity",
@@ -19,7 +25,10 @@ genre_names.each do |name|
   })
 end
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> df4786f84f78e97c7e335d3427d8d751ea436ec1
 app_list = AppStore.search("evernote")[0..10] + AppStore.search("lexulous")[0..10] +
 AppStore.search("dark+sky")[0..10] + AppStore.search("things")[0..10] + AppStore.search("instagram")[0..10] +
 AppStore.search("twitter")[0..10] + AppStore.search("reeder")[0..10] + AppStore.search("hype+machine")[0..10] +
@@ -28,7 +37,11 @@ AppStore.search("letterpress")[0..10] + AppStore.search("vesper")[0..10] + AppSt
 AppStore.search("splashtop")[0..10] + AppStore.search("alien+blue")[0..10]
 
 app_list.each do |app|
+<<<<<<< HEAD
   current_app = App.create!(app)
+=======
+  current_app = App.create(app)
+>>>>>>> df4786f84f78e97c7e335d3427d8d751ea436ec1
 
   current_app.tags.split(',').each do |tag|
     if genre = Genre.find_by(name: tag)
@@ -37,3 +50,18 @@ app_list.each do |app|
   end
 
 end
+<<<<<<< HEAD
+=======
+
+users.each do |user|
+  current_user = User.create(user)
+
+  current_user.bookmarked_apps << App.all.sample
+  current_user.upvoted_apps << App.all.sample
+end
+
+App.all.each do |current_app|
+  current_app.upvote_count = (0..500).to_a.sample
+  current_app.save
+end
+>>>>>>> df4786f84f78e97c7e335d3427d8d751ea436ec1
