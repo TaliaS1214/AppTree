@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  root to: 'application#index'
   devise_for :users
 
   resources :genres do

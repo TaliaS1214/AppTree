@@ -14,9 +14,25 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
+
     <main role="main">
        <%= render 'layouts/messages' %>
-       <%= yield %>
+       <% yield %>
     </main>
+
+    <ul class="side-nav">
+      <% @genres.each do |genre| %>
+        <li><a href=""><%= genre.name %></a></li>
+      <% end %>
+    </ul>
+
+    <div id="main-content">
+      <div class="row">
+        <div class="small-8 columns panel">
+          Welcome!
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
