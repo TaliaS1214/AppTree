@@ -1,6 +1,8 @@
 class AppsController < ApplicationController
 
   def index
+    genre = Genre.find_by(name: params[:genre].capitalize)
+    render json: genre.apps.to_json, status: 200
   end
 
   def show

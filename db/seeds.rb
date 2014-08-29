@@ -18,3 +18,7 @@ genre_names.each do |name|
     name: name
   })
 end
+
+AppStore.search("evernote")[0...10].each do |app|
+  App.create!(app)
+end
