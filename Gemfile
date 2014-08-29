@@ -12,6 +12,9 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'foundation-rails'
 gem 'pg'
+gem 'backbars'
+gem 'twilio-ruby'
+gem 'httparty'
 group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
