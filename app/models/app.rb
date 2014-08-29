@@ -1,5 +1,5 @@
 class App < ActiveRecord::Base
 
-  belongs_to :genre
+  has_many :genre
 
 end
