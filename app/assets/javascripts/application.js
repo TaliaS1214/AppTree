@@ -33,4 +33,15 @@ Discovr = {
 
 $(function() {
   $(document).foundation();
+
+  Discovr.Routers.user = new Discovr.Routers.User();
+  Discovr.Routers.app = new Discovr.Routers.App();
+  Backbone.history.start();
+
+  var genres = new Discovr.Collections.Genre();
+  genres.fetch({
+    success: function() {
+      var genreListView = new Discovr.Views.GenreList({collection: genres});
+    }
+  });
 });

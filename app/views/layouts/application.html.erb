@@ -11,32 +11,25 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="modal-form" class="reveal-modal" data-reveal>
-        
-    </div>
-
     <header>
       <%= render 'layouts/navigation' %>
     </header>
 
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <% yield %>
-    </main>
+    <%= render 'layouts/messages' %>
 
-    <ul class="side-nav">
-      <% @genres.each do |genre| %>
-        <li><a href=""><%= genre.name %></a></li>
-      <% end %>
-    </ul>
+    <div id="modal-form" class="reveal-modal" data-reveal>
 
-    <div id="main-content">
-      <div class="row">
-        <div class="small-8 columns panel">
-          Welcome!
-        </div>
-      </div>
     </div>
+    <div class="row">
+      <div id="side-nav">
+        <ul class="side-nav" id="genre-list"></ul>
+      </div>
+      <div id="app-list-container"></div>
+    </div>
+
+
+
+
 
   </body>
 </html>

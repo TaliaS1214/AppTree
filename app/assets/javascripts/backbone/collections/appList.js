@@ -1,7 +1,6 @@
-Discovr.Collections.AppList = Backbone.Collection.extend({
+Discovr.Collections.App = Backbone.Collection.extend({
   initialize: function() {
     console.log('New App Collection');
   },
-  model: Discovr.Models.App,
-  url: '/'+ this.genre +'/apps'
+  model: Discovr.Models.App
 });

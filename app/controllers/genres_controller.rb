@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
 
   def index
-    @genres = Genre.all
+    render json: Genre.all.order(:name).to_json, status: 200
   end
 
   def show

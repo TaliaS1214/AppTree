@@ -14,10 +14,17 @@
  *= require_self
  */
 
-.side-nav{
- width: 175px;
+#side-nav{
+  width: 175px;
+  display: inline-block;
+  max-height: 400px;
+  overflow: scroll;
+
 }
 
-#main-content {
-
+#app-list-container {
+  width: 800px;
+  display: inline-block;
+  max-height: 500px;
+  overflow: scroll;
 }

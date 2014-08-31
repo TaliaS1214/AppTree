@@ -1,8 +1,8 @@
 class AppsController < ApplicationController
 
   def index
-    genre = Genre.find_by(name: params[:genre].capitalize)
-    render json: genre.apps.to_json, status: 200
+    genre = Genre.find_by(name: params[:genre])
+    render json: genre.apps.order(upvote_count: :desc).to_json, status: 200
   end
 
   def show
@@ -24,4 +24,5 @@ class AppsController < ApplicationController
   def app_params
     params.require(:app).permit(:name, :tags, :screenshot_urls, :release_date, :creator, :price, :small_avatar_url, :large_avatar_url, :track_view_url, :description, :user_id)
   end
+
 end
