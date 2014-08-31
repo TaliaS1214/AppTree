@@ -14,17 +14,76 @@
  *= require_self
  */
 
-#side-nav{
+#side-nav {
   width: 175px;
   display: inline-block;
-  max-height: 400px;
+  height: 600px;
   overflow: scroll;
+
+  li {
+    padding: 5px 10px;
+    border-radius: 10px;
+
+  }
+
+  li:hover {
+    color: white;
+    background: #C0C0C0;
+  }
 
 }
 
-#app-list-container {
+
+#app-search-and-list {
   width: 800px;
   display: inline-block;
-  max-height: 500px;
-  overflow: scroll;
+  height: 600px;
+
+  #search {
+    position: fixed;
+    width: 800px;
+    top: 110px;
+
+    #search-bar {
+      width: 650px;
+      display: inline-block;
+    }
+
+    #search-button {
+      width: 100px;
+      height: 37px;
+      padding: 2 auto;
+    }
+
+  }
+
+  #app-list-container {
+
+    overflow: scroll;
+    margin-top: 50px;
+
+    .app-single {
+
+      .upvote-count {
+        display: inline-block;
+      }
+
+      .app-image {
+        display: inline-block;
+        max-height: 57px;
+      }
+
+      .app-name {
+        max-width: 400px;
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      .app-price {
+        display: inline-block;
+        float: right;
+      }
+    }
+  }
+
 }

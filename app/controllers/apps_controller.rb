@@ -15,7 +15,7 @@ class AppsController < ApplicationController
   end
 
   def search
-    @results = AppStore.search(search_term)
+    @results = AppStore.search(params[:search_term])
     render json: @results.to_json, status: 200
   end
 

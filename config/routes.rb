@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :genres, only: [:index]
 
+  get '/apps/search' => 'apps#search'
   get '/apps/:genre' => 'apps#index'
-
   resources :apps, only: [:new, :create, :show]
 end

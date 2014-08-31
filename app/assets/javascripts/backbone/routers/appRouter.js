@@ -1,6 +1,7 @@
 Discovr.Routers.App = Backbone.Router.extend({
   initialize: function() {
     Discovr.Models.currentUser = new Discovr.Models.User({id: 'current'});
+    Discovr.Views.search = new Discovr.Views.Search();
     var currentUser = Discovr.Models.currentUser
     currentUser.fetch({
       success: function() {

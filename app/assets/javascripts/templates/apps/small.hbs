@@ -1,14 +1,15 @@
-<img src="{{small_avatar_url}}" />
-<h2>{{name}}</h2>
-<p>${{price}}</p>
 
 {{#if upvotable}}
   <button class="upvote-button">^</button>
-  <p class="upvote-count">{{upvote_count}}</p>
+  <div class="upvote-count">{{upvote_count}}</div>
 {{else}}
   {{#if addable}}
     <button class="add-button">+</button>
   {{else}}
-    <p class="upvote-count">{{upvote_count}}</p>
+    <div class="upvote-count">{{upvote_count}}</div>
   {{/if}}
 {{/if}}
+
+<img class="app-image" src="{{small_avatar_url}}" />
+<h2 class="app-name">{{name}}</h2>
+<div class="app-price">${{price}}</div>
