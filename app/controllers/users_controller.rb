@@ -12,4 +12,5 @@ class UsersController < ApplicationController
       render nothing: true
     end
   end
+  
 end
