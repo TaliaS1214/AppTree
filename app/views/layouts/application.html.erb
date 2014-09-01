@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Discover App" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Discover App" %>">
+    <script type="text/javascript" src="//use.typekit.net/tjz4rmh.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%# Modernizr is required for Zurb Foundation %>
     <%= javascript_include_tag 'vendor/modernizr' %>

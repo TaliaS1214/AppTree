@@ -36,6 +36,8 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	vertical-align: baseline;
+	font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -150,7 +152,7 @@ table {
           .upvote-count {
             font-size: 12px;
             width: 35px;
-            color: #ddd;
+            color: #aaa;
             text-align: center;
             display: inline-block;
           }
@@ -167,7 +169,7 @@ table {
         float: left;
         line-height:1.4;
         .app-name {
-          font-weight: bold;
+          font-weight: 600;
           font-size: 14px;
           text-overflow: ellipsis;
           white-space: nowrap;
