@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if session[:current_user] == params[:id]
+    if session[:current_user] == params[:id].to_i
       session[:current_user] = nil
-      render nothing: true
+      render json: {sessionStatus: false}.to_json, status: 200
     end
   end
 

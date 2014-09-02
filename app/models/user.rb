@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
       first_name: self.first_name,
       last_name: self.last_name,
       email: self.email,
-      genres: self.genres.pluck(:name)
+      genres: self.genres.pluck(:name),
+      sessionStatus: true
     }
   end
 end

@@ -30,16 +30,25 @@ Discovr.Views.Modal = Backbone.View.extend({
   },
   signUserIn: function() {
     event.preventDefault();
+
     var user = {
       email: $('#sign-in-email').val(),
       password: $('#sign-in-password').val()
     }
+
     Discovr.Models.currentUser.fetch({
       url: '/sessions',
       data: user,
       type: 'post',
       success: function() {
-        Discovr.Models.currentUser.set('sessionStatus', true);
+        Discovr.Routers.app.navigate('favorites');
+
+        var genres = [];
+        Discovr.Models.currentUser.get('genres').forEach(function(element) {
+          genres.push({name: element});
+        });
+
+        Discovr.Collections.genres.reset(genres);
         this.closeModal();
       }.bind(this)
     })
