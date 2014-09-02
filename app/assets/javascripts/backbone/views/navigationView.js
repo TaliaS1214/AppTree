@@ -33,16 +33,17 @@ Discovr.Views.Navigation = Backbone.View.extend({
   },
 
   loadAllGenres: function() {
-    Discovr.Routers.app.navigate('discover');
-
     event.preventDefault();
-    Discovr.Routers.app.navigate('discovr');
+
+    $('#main-content').show();
+    $('#app-show-page').hide();
+
+    Discovr.Routers.app.navigate('discover');
     Discovr.Collections.genres.fetch({ reset: true });
   },
 
   loadSignInPage: function() {
     event.preventDefault();
-
     Discovr.Routers.app.navigate('signin-or-signup');
     var $modal = $('.modal');
     $modal.empty().show().append(this.signInTemplate());

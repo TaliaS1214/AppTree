@@ -7,12 +7,6 @@ class AppsController < ApplicationController
     render json: apps.to_json, status: 200
   end
 
-  def show
-  end
-
-  def new
-  end
-
   def create
     app = App.new(app_params)
     app.upvote_count = 1

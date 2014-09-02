@@ -45,8 +45,6 @@ Discovr.Views.Modal = Backbone.View.extend({
       data: user,
       type: 'post',
       success: function() {
-        Discovr.Routers.app.navigate('favorites');
-
         var genres = [];
         Discovr.Models.currentUser.get('genres').forEach(function(element) {
           genres.push({name: element});

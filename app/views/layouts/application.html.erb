@@ -13,38 +13,28 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="modal">
-    </div>
-    
-    <header class="top-bar">
+    <div class="modal"></div>
 
-    </header>
+    <header class="top-bar"></header>
 
-    <div class="row">
-      <%= yield %>
-    </div>
-
-
-    <div class="row">
-      <h2>Browse by Genre</h2>
-    </div>
-    <div class="row">
-      <div id="side-nav">
-        <ul class="side-nav" id="genre-list"></ul>
-      </div>
-
-      <div id="app-search-and-list">
-        <div id="search">
-          <input id="search-bar" type="text">
-          <button id="search-button">Search</button>
+    <div id="main-content">
+      <div class="row">
+        <div id="side-nav">
+          <ul class="side-nav" id="genre-list"></ul>
         </div>
-        <div id="app-list-container"></div>
+        <div id="app-search-and-list">
+          <div id="search">
+            <input id="search-bar" type="text">
+            <button id="search-button">Search</button>
+          </div>
+          <div id="app-list-container"></div>
+        </div>
       </div>
     </div>
 
+    <div id="app-show-page">
 
-
-
+    </div>
 
   </body>
 </html>

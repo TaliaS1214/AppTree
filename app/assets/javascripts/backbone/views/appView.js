@@ -3,14 +3,14 @@ Discovr.Views.App = Backbone.View.extend({
 
   initialize: function() {
     this.appTemplate = HandlebarsTemplates['apps/small'];
-    //this.searchBarTemplate = HandlebarsTemplates['apps/search'];
     this.listenTo(this.model, 'change', this.render);
     this.render();
   },
 
   events: {
-    'click .upvote-button' : 'increaseUpvoteCount',
-    'click .send-to-device' : 'sendToDevice'
+    'click .upvote-button'  : 'increaseUpvoteCount',
+    'click .send-to-device' : 'sendToDevice',
+    'click .app-name'       : 'openShowPage'
   },
 
   render: function() {
@@ -34,6 +34,10 @@ Discovr.Views.App = Backbone.View.extend({
     $.ajax( '/apps/'+ this.model.id + '/send', {
       type: 'put'
     });
+  },
+
+  openShowPage: function() {
+    Discovr.Views.appShow = new Discovr.Views.AppShow({model: this.model});
   }
 
 });
