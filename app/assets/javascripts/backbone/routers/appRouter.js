@@ -1,8 +1,8 @@
 Discovr.Routers.App = Backbone.Router.extend({
   initialize: function() {
     Discovr.Models.currentUser = new Discovr.Models.User({id: 'current'});
-    Discovr.Views.nav = new Discovr.Views.Navigation();
-
+    Discovr.Views.nav = new Discovr.Views.Navigation({model: Discovr.Models.currentUser});
+    Discovr.Views.modal = new Discovr.Views.Modal();
     // Creating Search Bar
     Discovr.Views.search = new Discovr.Views.Search();
   },

@@ -13,19 +13,18 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+    <div class="modal">
+    </div>
+    
+    <header class="top-bar">
 
-    <%= render 'layouts/messages' %>
+    </header>
 
     <div class="row">
       <%= yield %>
     </div>
 
-    <div id="modal-form" class="reveal-modal" data-reveal>
 
-    </div>
     <div class="row">
       <h2>Browse by Genre</h2>
     </div>

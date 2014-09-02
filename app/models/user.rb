@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+
+  has_secure_password
 
   has_and_belongs_to_many :genres
   has_many :upvotes
@@ -14,7 +12,8 @@ class User < ActiveRecord::Base
   def safe_info
     {
       id: self.id,
-      name: self.name,
+      first_name: self.first_name,
+      last_name: self.last_name,
       email: self.email,
       genres: self.genres.pluck(:name)
     }

@@ -1,0 +1,13 @@
+<nav>
+  <ul id="main-nav">
+    <li id="discover-button">Discover</li>
+
+    {{#if sessionStatus}}
+      <li id="favorites-button">Favorites</li>
+      <li id="profile-button">Profile</li>
+      <li id="sign-out-button">Sign Out</li>
+    {{else}}
+      <li id="sign-in-button">Sign Up/Sign In</li>
+    {{/if}}
+  </ul>
+</nav>

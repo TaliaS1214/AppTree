@@ -1,8 +1,31 @@
 class UsersController < ApplicationController
 
+  def index
+  end
+
+  def new
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      session[:current_user] = @user.id
+      render json: @user.safe_info.to_json, status: 200
+    end
+  end
+
   def show
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
     render json: @user.safe_info.to_json, status: 200
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   def logged
@@ -12,5 +35,11 @@ class UsersController < ApplicationController
       render nothing: true
     end
   end
-  
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number)
+  end
+
 end

@@ -55,7 +55,14 @@ table {
 	border-spacing: 0;
 }
 
-.top-bar {
+
+//::::::::::::::::: Navigation ::::::::::::::::::
+#main-nav {
+
+	li {
+		display: inline-block;
+		color: white;
+	}
 
 	li:hover {
 		background-color: #2ba6cb;
@@ -79,9 +86,46 @@ table {
     color: white;
     background: #C0C0C0;
   }
-
 }
 
+
+
+//::::::::::::::::: User Auth ::::::::::::::::::
+
+.modal {
+	display: none;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,10,0.7);
+	z-index: 100;
+}
+
+#user-auth-modal {
+	position: absolute;
+	background: white;
+	padding: 10px;
+	border-radius: 10px;
+	width: 700px;
+	height: 350px;
+	top: 20%;
+	left: 20%;
+
+	#sign-up-half {
+		height: 350px;
+		width: 330px;
+		display: inline-block;
+	}
+
+	#sign-in-half {
+		height: 350px;
+		width: 330px;
+		display: inline-block;
+	}
+}
+
+
+//::::::::::::::::: Apps ::::::::::::::::::
 
 #app-search-and-list {
   display: block;
