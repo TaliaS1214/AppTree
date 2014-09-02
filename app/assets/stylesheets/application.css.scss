@@ -74,6 +74,7 @@ header.top-bar{
     font-size: 14px;
   	li {
   	  float: right;
+  	  cursor: pointer;
   		display: inline-block;
   		color: white;
       line-height: 1.4;
@@ -104,6 +105,7 @@ header.top-bar{
   float: left;
 
   li{
+    cursor: pointer;
     padding: 5px 10px;
     border-radius: 10px;
     position: relative;
@@ -164,39 +166,70 @@ header.top-bar{
 	}
 }
 
-
+.row{
+  margin: auto;
+  float: none;
+  clear: both;
+  width: 1000px;
+}
 //::::::::::::::::: Apps ::::::::::::::::::
+#app-search-and-list{
+  width: 100%;
+  background: #f5f5f5;
+  padding: 50px 0 75px;
+  form{
+    width: 900px;
+    margin: auto;
+  }
+}
 
-#app-search-and-list {
-  display: block;
-  float:left;
-  width:800px;
+#app-search-and-list, .row {
   #search {
     position: relative;
-    width: 700px;
     top: 0;
     display: block;
-
+    label{
+      font-size: 20px;
+      color: #2f363d;
+      float: left;
+    }
     #search-bar {
       width: 500px;
       display: block;
       float: left;
+      border: none;
+      padding: 0px;
+      margin-left: 20px;
+      height: 50px;
+      margin-top:-10px;
+      border-radius: 5px;
+      font-size: 18px;
+      box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
     }
 
     #search-button {
       width: 100px;
-      height: 37px;
+      margin-top:-10px;
+      font-family: "Proxima Nova";
+      color:white;
+      font-size:18px;
       padding: 0;
-      float: right;
-      border-radius: 4px;
+      float: left;
+      background:#ff8448;
+      border: none;
+      height: 50px;
+      margin-left:15px;
+      border-radius: 5px;
+      -webkit-font-smoothing: antialiased;  
     }
 
   }
 
   #app-list-container {
-    clear: both;
     overflow: scroll;
     margin-top: 50px;
+    float: right;
+    width: 800px;
 
     .app-single {
       width:250px;

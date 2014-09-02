@@ -14,27 +14,24 @@
   </head>
   <body>
     <div class="modal"></div>
-
     <header class="top-bar"></header>
-
     <div id="main-content">
+      <div id="app-search-and-list">
+        <form id="search" name="search"> 
+          <label for="search-bar">What are your favorite apps?</label>
+          
+          <input type="search" id="search-bar" placeholder="Type app name…" />
+          <input type="submit" id="search-button" value="Search" />
+        </form>      
+      </div>
       <div class="row">
         <div id="side-nav">
           <ul class="side-nav" id="genre-list"></ul>
         </div>
-        <div id="app-search-and-list">
-          <div id="search">
-            <input id="search-bar" type="text">
-            <button id="search-button">Search</button>
-          </div>
-          <div id="app-list-container"></div>
-        </div>
+        <div id="app-list-container"></div>
       </div>
     </div>
-
-    <div id="app-show-page">
-
-    </div>
-
+    <div id="app-show-page"></div>
+    <div id="profile-page"></div>
   </body>
 </html>
