@@ -44,7 +44,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
+  min-width: 1024px;
 	line-height: 1;
 }
 ol, ul {
@@ -56,36 +58,74 @@ table {
 }
 
 
+
 //::::::::::::::::: Navigation ::::::::::::::::::
-#main-nav {
+header.top-bar{
+  background: #2f363d;  
+  height: 45px;
+  h1{
+    color: white;
+    margin: 0;
+    line-height: 1.4;
+  }
+  #main-nav {
+    width: 1024px;
+    margin: auto;
+    font-size: 14px;
+  	li {
+  	  float: right;
+  		display: inline-block;
+  		color: white;
+      line-height: 1.4;
+      padding: 13px 20px;
+      border-right:1px solid rgba(255,255,255,.15);
+      border-left:1px solid rgba(255,255,255,.15);
 
-	li {
-		display: inline-block;
-		color: white;
-	}
+  	  &#home, &#discover-button{
+  	    color: white;
+    	  float: left;
+        border-left: none;
+  	  }
+  	  &#sign-out-button{
+    	  border-left: none;
+  	  }
 
-	li:hover {
-		background-color: #2ba6cb;
-	}
-
+  	}
+  
+  	li:hover {
+  		background-color: #2ba6cb;
+  	}    
+  }
 }
-
 #side-nav {
   width: 175px;
   display: block;
   overflow: scroll;
   float: left;
 
-  li {
+  li{
     padding: 5px 10px;
     border-radius: 10px;
-
+    position: relative;
   }
-
+  
   li:hover {
     color: white;
-    background: #C0C0C0;
+    background: #555;
   }
+  
+  li:after {
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 26px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid blue;
+   border-bottom: 13px solid transparent;
+}
+  
 }
 
 
