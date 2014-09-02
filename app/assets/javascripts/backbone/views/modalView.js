@@ -1,13 +1,16 @@
 Discovr.Views.Modal = Backbone.View.extend({
   el: '.modal',
+
   initialize: function() {
     console.log('New Modal View');
   },
+
   events: {
     'click #form-sign-up-button' : 'createUser',
     'click #form-sign-in-button' : 'signUserIn',
     'click .close' : 'closeModal'
   },
+
   createUser: function() {
     event.preventDefault();
     var userObject = {
@@ -28,6 +31,7 @@ Discovr.Views.Modal = Backbone.View.extend({
     });
 
   },
+
   signUserIn: function() {
     event.preventDefault();
 
@@ -53,7 +57,9 @@ Discovr.Views.Modal = Backbone.View.extend({
       }.bind(this)
     })
   },
+
   closeModal: function() {
+    this.$el.empty();
     this.$el.hide();
   }
 

@@ -1,27 +1,22 @@
 
 <div class="upvote">
-  <div class="upvote-button"></div>
-  {{! ABOVE DIV WILL BE REDUNDANT AFTER UPVOTE CODE BELOW WORKS }}
-{{#if upvotable}}
-  <div class="upvote-button"></div>
-  <div class="upvote-count">{{upvote_count}}</div>
-{{else}}
-  {{#if addable}}
-    <button class="add-button">+</button>
-  {{else}}
-    <div class="upvote-count">{{upvote_count}}</div>
+  {{#if upvotable}}
+    <div class="upvote-button"></div>
   {{/if}}
-{{/if}}
+  <div class="upvote-count">{{upvote_count}}</div>
 </div>
 
 <div class="artwork">
   <img class="app-image" src="{{small_avatar_url}}" />
   <span class="mask"></span>
 </div>
+
 <div class="app-details">
   <h2 class="app-name">{{name}}</h2>
-  <div class="app-price">${{price}}</div>
+  <div class="app-price">
+    ${{price}}
+  </div>
   <div class="app-links">
-    <a href="{{track_view_url}}" target="_blank">App Store</a> | <a href="">Send to device</a>
+    <a href="{{track_view_url}}" target="_blank">App Store</a> | <a class="send-to-device">Send to device</a>
   </div>
 </div>

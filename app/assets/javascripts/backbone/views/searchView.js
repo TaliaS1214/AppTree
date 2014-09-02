@@ -9,12 +9,12 @@ Discovr.Views.Search = Backbone.View.extend({
   },
   searchAndRender: function() {
     var searchTerm = this.$('#search-bar').val();
-    var apps = new Discovr.Collections.App();
-    apps.url = '/apps/search';
-    apps.fetch({
+    Discovr.Collections.apps = new Discovr.Collections.App();
+    Discovr.Collections.apps.url = '/apps/search';
+    Discovr.Collections.apps.fetch({
       data: {search_term: searchTerm},
       success: function() {
-        var appListView = new Discovr.Views.AppList({collection: apps});
+        Discovr.Views.appList = new Discovr.Views.AppList({collection: Discovr.Collections.apps});
       }
     });
 
