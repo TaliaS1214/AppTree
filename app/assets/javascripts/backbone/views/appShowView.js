@@ -7,6 +7,8 @@ Discovr.Views.AppShow = Backbone.View.extend({
 
   render: function() {
     $('#main-content').hide();
+    this.model.set('currentURL', document.URL)
+
     this.$el.html(this.appShowTemplate(this.model.toJSON()));
     this.$el.show();
   }

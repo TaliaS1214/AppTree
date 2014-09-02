@@ -41,14 +41,8 @@ Discovr.Routers.App = Backbone.Router.extend({
   },
 
 
-
-
-
-
-
-
-
   //::::::::: helper methods :::::::::
+  
   setGenres: function() {
     Discovr.Collections.genres = new Discovr.Collections.Genre();
     Discovr.Collections.genres.fetch({

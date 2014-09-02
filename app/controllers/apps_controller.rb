@@ -40,6 +40,10 @@ class AppsController < ApplicationController
     render nothing: true
   end
 
+  def user_apps
+    render json: current_user.bookmarked_and_upvoted_apps.to_json, status: 200
+  end
+
   private
 
   def app_params

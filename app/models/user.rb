@@ -19,4 +19,11 @@ class User < ActiveRecord::Base
       sessionStatus: true
     }
   end
+
+  def bookmarked_and_upvoted_apps
+    {
+      upvoted: self.upvoted_apps,
+      bookmarks: self.bookmarked_apps
+    }
+  end
 end
