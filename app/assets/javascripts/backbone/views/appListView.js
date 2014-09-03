@@ -1,5 +1,6 @@
 Discovr.Views.AppList = Backbone.View.extend({
   el: '#app-list-container',
+  
   initialize: function() {
   },
 
@@ -14,7 +15,7 @@ Discovr.Views.AppList = Backbone.View.extend({
     $('<div id="search-results">').appendTo(this.$el)
       .append('<div id="apps-in-database">')
       .append('<div id="apps-not-in-database">');
-    this.renderAll(null);
+    this.renderAll();
   },
 
   renderAll: function(buttonClicked) {
@@ -29,11 +30,7 @@ Discovr.Views.AppList = Backbone.View.extend({
     if (buttonClicked === 'genre') {
       appStorageContainer = this.$el.find('#browse-genre');
     } else {
-      if (appModel.id) {
-        appStorageContainer = this.$('#apps-in-database');
-      } else {
-        appStorageContainer = this.$('#apps-not-in-database');
-      }
+      appStorageContainer = appModel.id ? this.$('#apps-in-database') : this.$('#apps-not-in-database');
     }
     appStorageContainer.append(appView.$el);
   }

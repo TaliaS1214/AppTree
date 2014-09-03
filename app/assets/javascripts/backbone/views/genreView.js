@@ -4,7 +4,6 @@ Discovr.Views.Genre = Backbone.View.extend({
   className: 'genre-link',
 
   initialize: function() {
-    console.log('New Genre View Created');
     this.render();
   },
 
@@ -17,6 +16,8 @@ Discovr.Views.Genre = Backbone.View.extend({
   },
 
   displayApps: function() {
+    this.$el.siblings().removeClass('active');
+    this.$el.addClass('active');
     var genreName = this.model.get('name');
     Discovr.Collections.apps = new Discovr.Collections.App();
     Discovr.Collections.apps.url = '/apps/' + genreName;

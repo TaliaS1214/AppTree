@@ -2,7 +2,6 @@ Discovr.Views.Modal = Backbone.View.extend({
   el: '.modal',
 
   initialize: function() {
-    console.log('New Modal View');
   },
 
   events: {
@@ -29,7 +28,6 @@ Discovr.Views.Modal = Backbone.View.extend({
         this.closeModal();
       }.bind(this)
     });
-
   },
 
   signUserIn: function() {
@@ -53,7 +51,7 @@ Discovr.Views.Modal = Backbone.View.extend({
         Discovr.Collections.genres.reset(genres);
         this.closeModal();
       }.bind(this)
-    })
+    });
   },
 
   closeModal: function() {

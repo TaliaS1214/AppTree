@@ -61,7 +61,7 @@ table {
 
 //::::::::::::::::: Navigation ::::::::::::::::::
 header.top-bar{
-  background: #2f363d;  
+  background: #2f363d;
   height: 45px;
   h1{
     color: white;
@@ -92,10 +92,10 @@ header.top-bar{
   	  }
 
   	}
-  
+
   	li:hover {
   		background-color: #2ba6cb;
-  	}    
+  	}
   }
 }
 #side-nav {
@@ -105,17 +105,24 @@ header.top-bar{
   float: left;
 
   li{
+		
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 10px;
     position: relative;
+
   }
-  
+
+	li.active {
+		color: white;
+		background: #555;
+	}
+
   li:hover {
     color: white;
     background: #555;
   }
-  
+
   li:after {
    content:"";
    position: absolute;
@@ -127,7 +134,7 @@ header.top-bar{
    border-right: 26px solid blue;
    border-bottom: 13px solid transparent;
 }
-  
+
 }
 
 
@@ -220,7 +227,7 @@ header.top-bar{
       height: 50px;
       margin-left:15px;
       border-radius: 5px;
-      -webkit-font-smoothing: antialiased;  
+      -webkit-font-smoothing: antialiased;
     }
 
   }

@@ -1,5 +1,6 @@
 Discovr.Views.Navigation = Backbone.View.extend({
   el: '.top-bar',
+  
   initialize: function() {
     this.listenTo(this.model, 'change', this.render);
     this.navBarTemplate = HandlebarsTemplates['navigation/navbar'];
@@ -19,17 +20,6 @@ Discovr.Views.Navigation = Backbone.View.extend({
     'click #sign-in-button'     : 'loadSignInPage',
     'click #sign-out-button'    : 'logOut'
   },
-
-  // loadUserGenres: function() {
-  //   Discovr.Routers.app.navigate('favorites');
-  //   var genres = [];
-  //
-  //   Discovr.Models.currentUser.get('genres').forEach(function(genre) {
-  //     genres.push({name: genre});
-  //   });
-  //
-  //   Discovr.Collections.genres.reset(genres);
-  // },
 
   loadAllGenres: function() {
     $('#app-show-page').hide();
@@ -51,8 +41,8 @@ Discovr.Views.Navigation = Backbone.View.extend({
 
   loadSignInPage: function() {
     Discovr.Routers.app.navigate('signin-or-signup');
-    var $modal = $('.modal');
-    $modal.empty().show().append(this.signInTemplate());
+
+    $('.modal').empty().show().append(this.signInTemplate());
   },
 
   logOut: function() {

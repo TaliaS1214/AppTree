@@ -27,7 +27,6 @@ Discovr.Views.App = Backbone.View.extend({
     else {
       this.model.save();
     }
-
   },
 
   sendToDevice: function() {

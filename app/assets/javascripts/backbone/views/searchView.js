@@ -1,5 +1,6 @@
 Discovr.Views.Search = Backbone.View.extend({
   el: '#search',
+
   initialize: function() {
     this.loadingTemplate = HandlebarsTemplates['apps/loading'];
   },
@@ -7,6 +8,7 @@ Discovr.Views.Search = Backbone.View.extend({
   events: {
     'click #search-button': 'searchAndRender'
   },
+
   searchAndRender: function(event) {
     event.preventDefault();
 
