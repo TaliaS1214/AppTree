@@ -46,9 +46,6 @@ Discovr.Views.AppList = Backbone.View.extend({
     else if (buttonClicked === 'top'){
       appStorageContainer = this.$('#top-apps');
     }
-    else if (buttonClicked === 'profile upvoted'){
-      appStorageContainer
-    }
 
     appStorageContainer.append(appView.$el);
   }

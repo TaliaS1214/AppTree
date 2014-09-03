@@ -23,6 +23,14 @@ Discovr.Views.Navigation = Backbone.View.extend({
 
   loadHomePage: function() {
     Discovr.Routers.app.navigate('');
+
+    Discovr.Views.genreList = new Discovr.Views.GenreList({collection: Discovr.Collections.genres});
+    Discovr.Views.genreList.renderAll();
+
+    $('#app-show-page').hide();
+    $('#profile-page').hide();
+    $('#main-content').show();
+
     $('#results-title').html('Top Apps on AppTree');
 
     Discovr.Collections.topApps = new Discovr.Collections.App();
@@ -48,6 +56,8 @@ Discovr.Views.Navigation = Backbone.View.extend({
   },
 
   loadProfilePage: function() {
+    Discovr.Routers.app.navigate('users/profile');
+
     $('#app-show-page').hide();
     $('#main-content').hide();
     $('#profile-page').show();
@@ -69,7 +79,9 @@ Discovr.Views.Navigation = Backbone.View.extend({
       url: '/sessions/' + Discovr.Models.currentUser.id,
       type: 'delete',
       success: function() {
-        Discovr.Models.currentUser = new Discovr.Models.User({id: 'current'});
+        Discovr.Models.currentUser.clear();
+        Discovr.Models.currentUser.set('id', 'current');
+        Discovr.Models.currentUser.id = 'current';
         this.render();
       }.bind(this)
     })

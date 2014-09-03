@@ -2,6 +2,7 @@ Discovr.Views.Modal = Backbone.View.extend({
   el: '.modal',
 
   initialize: function() {
+
   },
 
   events: {
@@ -12,12 +13,15 @@ Discovr.Views.Modal = Backbone.View.extend({
 
   createUser: function() {
     event.preventDefault();
+
+    Discovr.Routers.app.navigate('');
+
     var userObject = {
       user: {
         email: $('#sign-up-email').val(),
         password: $('#sign-up-password').val(),
         password_confirmation: $('#sign-up-password-confirmation').val(),
-        phoneNumber: $('#sign-up-phone-number').val()
+        phone_number: $('#sign-up-phone-number').val()
       }
     }
     Discovr.Models.currentUser.fetch({
@@ -31,7 +35,10 @@ Discovr.Views.Modal = Backbone.View.extend({
   },
 
   signUserIn: function() {
+
     event.preventDefault();
+
+    Discovr.Routers.app.navigate('');
 
     var user = {
       email: $('#sign-in-email').val(),
@@ -44,7 +51,7 @@ Discovr.Views.Modal = Backbone.View.extend({
       type: 'post',
       success: function() {
         Discovr.Routers.app.navigate('');
-        Discovr.Routers.app.listAllGenres();
+        Discovr.Views.genreList.renderAll();
         this.closeModal();
       }.bind(this)
     });

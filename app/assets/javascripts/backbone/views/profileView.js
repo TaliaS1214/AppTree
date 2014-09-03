@@ -4,12 +4,14 @@ Discovr.Views.Profile = Backbone.View.extend({
   initialize: function() {
     this.model = Discovr.Models.currentUser;
     this.profileTemplate = HandlebarsTemplates['users/profile'];
-    this.upvoteCollection = Discovr.Collections.App({url: '/apps/upvoted'});
-    this.bookmarkCollection = Discovr.Collections.App({url: '/apps/bookmarked'});
+    this.upvoteCollection = new Discovr.Collections.App();
+    this.upvoteCollection.url = '/users/apps/upvoted';
+    this.bookmarkCollection = new Discovr.Collections.App();
+    this.bookmarkCollection.url =  '/users/apps/bookmarked';
 
     this.upvoteCollection.fetch({
       success: function() {
-        this.bookmarkedCollection.fetch({
+        this.bookmarkCollection.fetch({
           success: function() {
             this.render();
           }.bind(this)

@@ -1,9 +1,8 @@
 Discovr.Views.GenreList = Backbone.View.extend({
   el: '#genre-list',
-  
+
   initialize: function(){
     this.listenTo(this.collection, 'reset', this.renderAll);
-    this.renderAll();
   },
 
   renderAll: function() {
