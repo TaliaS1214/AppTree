@@ -1,11 +1,13 @@
 <div id="user-auth-modal">
+  <div class="close">close this window <span>&#x2715;</span></div>
   <div id="sign-up-half">
+    <h2>Create a new account</h2>
     <form>
       <label for="sign-up-email">Email</label>
       <input id="sign-up-email" name="user[email]" type="text">
       <label for="sign-up-password">Password</label>
       <input id="sign-up-password" name="user[password]" type="password">
-      <label for="sign-up-password-confirmation">Password Confirmation</label>
+      <label for="sign-up-password-confirmation">Confirm Password</label>
       <input id="sign-up-password-confirmation" name="user[password_confirmation]" type="password">
       <label for="sign-up-phone-number">Optional: Phone Number</label>
       <input id="sign-up-phone-number" name="user[phone_number]" type="text">
@@ -15,10 +17,12 @@
   </div>
 
   <div id="sign-in-half">
-    <div class="close">close this window <span>X</span></div>
+    <h2>Sign in to existing account</h2>
     <form>
-      <input id="sign-in-email" type="text" placeholder="email">
-      <input id="sign-in-password" type="password" placeholder="password">
+      <label for="sign-in-email">Email</label>
+      <input id="sign-in-email" type="text">
+      <label for="sign-in-password">Password</label>
+      <input id="sign-in-password" type="password">
 
       <input id="form-sign-in-button" type="submit" value="Login">
     </form>

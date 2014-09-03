@@ -2,6 +2,7 @@ Discovr.Routers.App = Backbone.Router.extend({
   initialize: function() {
     // Signs in current user
     Discovr.Models.currentUser = new Discovr.Models.User({id: 'current'});
+    Discovr.Models.currentUser.fetch();
 
     // Creates navigation bar
     Discovr.Views.nav = new Discovr.Views.Navigation({model: Discovr.Models.currentUser});
