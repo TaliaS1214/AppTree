@@ -24,15 +24,19 @@
     <div id="main-content">
       <div id="app-search-and-list">
         <form id="search" name="search">
-          <label for="search-bar">What are your favorite apps?</label>
-
+          <label for="search-bar">
+            What are your favorite apps?
+            <br/>
+            <span>Upvote apps you like and find new favorites.</span>
+          </label>
+    
           <input type="search" id="search-bar" placeholder="Type app name…" />
           <input type="submit" id="search-button" value="Search" />
         </form>
       </div>
       <div class="row">
         <div id="side-nav">
-          <h2>Browse by genre</h2>
+          <h2>Browse apps by genre</h2>
           <ul class="side-nav" id="genre-list"></ul>
         </div>
         <h2 id="results-title">Top Apps on AppTree</h2>
@@ -42,7 +46,7 @@
 
     <div id="app-show-page"></div>
     <div id="profile-page"></div>
-    <footer>
+    <footer class="clearfix">
       <p>The best way to discover new apps.<br/>app<b>Tree</b>.io<br/><br/>📱🌳</p>
     </footer>
   </body>
