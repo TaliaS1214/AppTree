@@ -7,6 +7,10 @@ class AppsController < ApplicationController
     render json: apps.to_json, status: 200
   end
 
+  def top
+    render json: App.all.order(upvote_count: :desc)[0...10].to_json, status: 200
+  end
+
   def create
     app = App.new(app_params)
     app.upvote_count = 1
@@ -33,10 +37,10 @@ class AppsController < ApplicationController
     end
   end
 
-  def send_and_bookmark
+  def send_and_bookmark()
     current_app = App.find(params[:id])
     bookmark(current_app)
-    send_text_message(current_app)
+    TwilioMod.send_text(current_app, current_user.phone_number)
     render nothing: true
   end
 
@@ -52,22 +56,6 @@ class AppsController < ApplicationController
 
   def bookmark(app)
     current_user.bookmarked_apps << app
-  end
-
-  def send_text_message(app)
-    number_to_send_to = "+1#{current_user.phone_number}"
-
-    twilio_sid = ENV["TWILIO_SID"]
-    twilio_token = ENV["TWILIO_TOKEN"]
-    twilio_phone_number = "6463627277"
-
-    twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
-
-    twilio_client.account.sms.messages.create(
-    :from => "+1#{twilio_phone_number}",
-    :to => number_to_send_to,
-    :body => "#{app.name}\n\nDownload Link: #{app.track_view_url}"
-    )
   end
 
 end

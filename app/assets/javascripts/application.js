@@ -34,7 +34,6 @@ Discovr = {
 $(function() {
   $(document).foundation();
 
-  Discovr.Routers.user = new Discovr.Routers.User();
   Discovr.Routers.app = new Discovr.Routers.App();
   Backbone.history.start();
 

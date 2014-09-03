@@ -18,6 +18,7 @@ Discovr.Views.Search = Backbone.View.extend({
     Discovr.Collections.apps.fetch({
       data: {search_term: searchTerm},
       success: function() {
+        $('#results-title').html('Search Results for "' + searchTerm + '"');
         Discovr.Views.appList = new Discovr.Views.AppList({collection: Discovr.Collections.apps});
         Discovr.Views.appList.renderSearchResults();
       }

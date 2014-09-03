@@ -14,6 +14,10 @@ Discovr.Views.App = Backbone.View.extend({
   },
 
   render: function() {
+    if (this.model.get('price') === 0) {
+      this.model.set('free', true);
+    }
+
     this.$el.html(this.appTemplate(this.model.toJSON()));
   },
 

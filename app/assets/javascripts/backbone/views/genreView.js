@@ -19,6 +19,7 @@ Discovr.Views.Genre = Backbone.View.extend({
     this.$el.siblings().removeClass('active');
     this.$el.addClass('active');
     var genreName = this.model.get('name');
+    Discovr.Routers.app.navigate('genres/' + genreName);
     Discovr.Collections.apps = new Discovr.Collections.App();
     Discovr.Collections.apps.url = '/apps/' + genreName;
     Discovr.Collections.apps.fetch({
@@ -26,6 +27,7 @@ Discovr.Views.Genre = Backbone.View.extend({
         Discovr.Views.appList = new Discovr.Views.AppList({
           collection: Discovr.Collections.apps
         });
+        $('#results-title').html(genreName);
         Discovr.Views.appList.renderGenreApps();
       }
     });

@@ -14,7 +14,12 @@
 <div class="app-details">
   <h2 class="app-name">{{name}}</h2>
   <div class="app-price">
-    ${{price}}
+    {{#if free}}
+      Free
+    {{else}}
+      ${{price}}
+    {{/if}}
+
   </div>
   <div class="app-links">
     <a href="{{track_view_url}}" target="_blank">App Store</a> | <a class="send-to-device">Send to device</a>

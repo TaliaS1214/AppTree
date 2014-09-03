@@ -43,12 +43,8 @@ Discovr.Views.Modal = Backbone.View.extend({
       data: user,
       type: 'post',
       success: function() {
-        var genres = [];
-        Discovr.Models.currentUser.get('genres').forEach(function(element) {
-          genres.push({name: element});
-        });
-
-        Discovr.Collections.genres.reset(genres);
+        Discovr.Routers.app.navigate('');
+        Discovr.Routers.app.listAllGenres();
         this.closeModal();
       }.bind(this)
     });
