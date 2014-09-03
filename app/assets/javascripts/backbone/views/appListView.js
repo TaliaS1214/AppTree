@@ -24,6 +24,10 @@ Discovr.Views.AppList = Backbone.View.extend({
     this.renderAll('search');
   },
 
+  renderProfileApps: function() {
+    this.renderAll('profile');
+  },
+
   renderAll: function(buttonClicked) {
     this.collection.forEach(function(appModel) {
       this.renderOne(appModel, buttonClicked);
@@ -35,11 +39,17 @@ Discovr.Views.AppList = Backbone.View.extend({
     var appStorageContainer;
     if (buttonClicked === 'genre') {
       appStorageContainer = this.$el.find('#browse-genre');
-    } else if (buttonClicked === 'search'){
+    }
+    else if (buttonClicked === 'search'){
       appStorageContainer = appModel.id ? this.$('#apps-in-database') : this.$('#apps-not-in-database');
-    } else if (buttonClicked === 'top'){
+    }
+    else if (buttonClicked === 'top'){
       appStorageContainer = this.$('#top-apps');
     }
+    else if (buttonClicked === 'profile upvoted'){
+      appStorageContainer
+    }
+
     appStorageContainer.append(appView.$el);
   }
 });

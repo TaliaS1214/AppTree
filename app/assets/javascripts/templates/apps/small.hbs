@@ -1,10 +1,18 @@
 
-<div class="upvote">
+{{#if signed_in}}
   {{#if upvotable}}
-    <div class="upvote-button"></div>
+    <div class="upvote">
+  {{else}}
+    <div class="upvote upvoted">
   {{/if}}
-  <div class="upvote-count">{{upvote_count}}</div>
-</div>
+      <div class="upvote-button"></div>
+    <div class="upvote-count">{{upvote_count}}</div>
+  </div>
+{{else}}
+  <div class="upvote">
+    <div class="upvote-count">{{upvote_count}}</div>
+  </div>
+{{/if}}
 
 <div class="artwork">
   <img class="app-image" src="{{small_avatar_url}}" />

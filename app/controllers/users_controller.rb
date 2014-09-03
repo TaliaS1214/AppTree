@@ -36,6 +36,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def upvoted_apps
+    render json: current_user.upvoted_apps.reverse.to_json, status: 200
+  end
+
+  def bookmarked_apps
+    apps = current_user.bookmarked_apps
+    apps.each { |app| app.upvotable_status(current_user) }
+    render json: apps.reverse.to_json, status: 200
+  end
+
   private
 
   def user_params

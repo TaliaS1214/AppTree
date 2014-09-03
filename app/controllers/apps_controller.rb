@@ -8,7 +8,9 @@ class AppsController < ApplicationController
   end
 
   def top
-    render json: App.all.order(upvote_count: :desc)[0...10].to_json, status: 200
+    apps = App.all.order(upvote_count: :desc)[0...10]
+    apps.each { |app| app.upvotable_status(current_user) }
+    render json: apps.to_json, status: 200
   end
 
   def create
@@ -28,11 +30,19 @@ class AppsController < ApplicationController
     render json: results.to_json, status: 200
   end
 
-  def upvote
+  def toggle_upvote
     app = App.find(params[:id])
-    app.upvote_count += 1
-    current_user.upvoted_apps << app
+
+    if current_user.upvoted_apps.include?(app)
+      app.upvote_count -= 1
+      app.upvotes.find_by(user_id: current_user.id).destroy
+    else
+      app.upvote_count += 1
+      current_user.upvoted_apps << app
+    end
+
     if app.save
+      app.upvotable_status(current_user)
       render json: app.to_json, status: 200
     end
   end
