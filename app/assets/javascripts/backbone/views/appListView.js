@@ -22,6 +22,8 @@ Discovr.Views.AppList = Backbone.View.extend({
       .append('<div id="apps-in-database">')
       .append('<div id="apps-not-in-database">');
     this.renderAll('search');
+    $('#apps-in-database').prepend('<h2 class="in-database">Ranking on AppTree</h2>');
+    $('#apps-not-in-database').prepend('<h2 class="not-in-database">iTunes App Store - Be the first to add to AppTree</h2>');
   },
 
   renderProfileApps: function() {

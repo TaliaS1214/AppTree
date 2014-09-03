@@ -101,7 +101,6 @@ header.top-bar{
 
 #results-title{
   margin-top: 40px;
-  border-bottom: 1px solid #ddd;
   display:block;
   float:left;
   width: 800px;
@@ -156,7 +155,23 @@ header.top-bar{
 }
 
 
-
+#search-results{
+  h2.in-database, h2.not-in-database{
+    padding-bottom: 10px;
+    width: 350px;
+    margin-bottom:10px;
+    border-bottom: 1px solid #ddd;
+    margin-top: -5px;
+  }
+  #apps-in-database{
+    width: 400px;
+    float: left;
+  }
+  #apps-not-in-database{
+    width: 400px;
+    float: left;
+  } 
+}
 //::::::::::::::::: User Auth ::::::::::::::::::
 
 .modal {
@@ -294,7 +309,7 @@ header.top-bar{
   }
 
   #app-list-container {
-    margin-top: 20px;
+    margin-top: 10px;
     float: left;
     width: 800px;
     
@@ -363,6 +378,7 @@ header.top-bar{
         	overflow: hidden;
         	line-height:1.4;
           margin:0;
+          width:230px;
         }
 				.app-name:hover {
 					text-decoration: underline;
