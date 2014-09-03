@@ -14,7 +14,7 @@ Discovr.Views.App = Backbone.View.extend({
   },
 
   render: function() {
-    if (this.model.get('price') === 0) { this.model.set('free', true);1 }
+    if (this.model.get('price') == 0.0) { this.model.set('free', true);1 }
     if (Discovr.Models.currentUser.get('email')) { this.model.set('signed_in', true); }
     this.$el.html(this.appTemplate(this.model.toJSON()));
   },

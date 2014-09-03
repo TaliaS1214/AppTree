@@ -1,34 +1,31 @@
 {{#if signed_in}}
-  {{#if upvotable}}
-    <div class="upvote">
-  {{else}}
-    <div class="upvote upvoted">
-  {{/if}}
-    <div class="upvote-button"></div>
-    <div class="upvote-count">{{upvote_count}}</div>
-  </div>
+  {{#if upvotable}}
+    <div class="upvote">
+    {{else}}
+    <div class="upvote upvoted">
+  {{/if}}
+    <div class="upvote-button"></div>
+    <div class="upvote-count">{{upvote_count}}</div>
+  </div>
 {{else}}
-  <div class="upvote">
-    <div class="upvote-count">{{upvote_count}}</div>
-  </div>
+  <div class="upvote">
+  <div class="upvote-count">{{upvote_count}}</div>
+  </div>
 {{/if}}
-
 <div class="artwork">
-  <img class="app-image" src="{{small_avatar_url}}" />
-  <span class="mask"></span>
+  <img class="app-image" src="{{small_avatar_url}}" />
+  <span class="mask"></span>
 </div>
-
 <div class="app-details">
-  <h2 class="app-name">{{name}}</h2>
-  <div class="app-price">
-    {{#if free}}
-      Free
-    {{else}}
-      ${{price}}
-    {{/if}}
-
-  </div>
-  <div class="app-links">
-    <a href="{{track_view_url}}" target="_blank">App Store</a> | <a class="send-to-device">Send to device</a>
-  </div>
+  <h2 class="app-name">{{name}}</h2>
+  <div class="app-price">
+    {{#if free}}
+      Free
+    {{else}}
+      ${{price}}
+    {{/if}}
+  </div>
+  <div class="app-links">
+    <a href="{{track_view_url}}" target="_blank">App Store</a> | <a class="send-to-device">Send to device</a>
+  </div>
 </div>
