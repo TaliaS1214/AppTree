@@ -56,7 +56,19 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
 
 
 //::::::::::::::::: Navigation ::::::::::::::::::
@@ -135,7 +147,7 @@ header.top-bar{
     margin: 0 0 6px;
   }
   
-  li:hover {
+  li:hover, li.active {
     color: white;
     background: #555;
   }
@@ -273,9 +285,17 @@ header.top-bar{
     top: 0;
     display: block;
     label{
-      font-size: 20px;
+      font-size: 22px;
       color: #fff;
       float: left;
+      width:280px;
+      margin-top: -12px;
+      white-space: normal;
+      span{
+        font-size: 14px;
+        display: block;
+        line-height: 1.5;
+      }
     }
     #search-bar {
       width: 500px;
@@ -337,6 +357,13 @@ header.top-bar{
           width: 40px;
           height: 50px;
           float:left;
+          -webkit-user-select: none; /* Chrome/Safari */        
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* IE10+ */
+          
+          /* Rules below not implemented in browsers yet */
+          -o-user-select: none;
+          user-select: none;
           .upvote-button{
             display: block;
             margin:10px auto 5px;
@@ -344,7 +371,20 @@ header.top-bar{
             width: 21px;
             background: url(image-path('upvote.png')) 0 0 no-repeat;
             background-size: 21px 21px;
-            &.already-upvoted{
+            -webkit-user-select: none; /* Chrome/Safari */        
+              -moz-user-select: none; /* Firefox */
+              -ms-user-select: none; /* IE10+ */
+              
+              /* Rules below not implemented in browsers yet */
+              -o-user-select: none;
+              user-select: none;
+          }
+          &.upvoted{ 
+            .upvote-count{
+              color: #fd8450
+              
+            }
+            .upvote-button{
               background: url(image-path('upvoted.png')) 0 0 no-repeat;
               background-size: 21px 21px;
             }
@@ -353,15 +393,23 @@ header.top-bar{
             font-size: 14px;
             font-weight: 600;
             -webkit-font-smoothing: antialiased;
-            width: 35px;
+            width: 40px;
             color: #bbb;
             text-align: center;
+            -webkit-user-select: none; /* Chrome/Safari */        
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+            
+            /* Rules below not implemented in browsers yet */
+            -o-user-select: none;
+            user-select: none;
             display: inline-block;
           }
       }
       .app-image {
         display: inline-block;
         height: 60px;
+        width: 60px;
       }
       .app-details{
         width: 300px;
@@ -485,6 +533,103 @@ header.top-bar{
   }
 
 }
+#app-show-page{
+  width: 800px;
+  margin: auto;
+  display: block;
+  clear: both;
+  &:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+  }
+  #app-detail-sidebar{
+    width: 150px;
+    float: left;
+  }
+  #app-detail-main{
+    width: 650px;
+    float: left;
+    color: #2f363d;
+    .upvote{
+      float: left;
+      width: 60px;
+      -webkit-user-select: none; /* Chrome/Safari */        
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+ */
+      /* Rules below not implemented in browsers yet */
+      -o-user-select: none;
+      user-select: none;
+      text-align: center;
+      .upvote-button{
+        display: block;
+        margin:10px auto 5px;
+        height: 21px;
+        width: 21px;
+        background: url(image-path('upvote.png')) 0 0 no-repeat;
+        background-size: 21px 21px;
+        -webkit-user-select: none; /* Chrome/Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+ */
+        /* Rules below not implemented in browsers yet */
+        -o-user-select: none;
+        user-select: none;
+      }
+    }
+    #screenshots{
+      border-radius: 8px;
+      background-color: rgb(248, 248, 248);
+      box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.24);
+      width: 680px;
+      height: 430px;
+      clear: both;
+      overflow: scroll;
+       position: relative; 
+      overflow-y: hidden;
+      #images-container{
+        width: 1280px;
+        img{
+          margin: 12px 0 0 12px;
+           position: relative; 
+        }
+      }
+    }
+    #app-header-info{
+      width: 580px;
+      height: 120px;
+      padding-top: 20px;
+      float: left
+    }
+    .app-creator{
+      font-size: 20px;
+    }
+    .app-name{
+      font-size: 26px;
+    }
+  }
+  div.artwork{
+    position: relative;
+  }
+  .app-icon-large{
+    max-width: 120px;
+    position: relative;
+  }
+  div.artwork>span.mask{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    background: url(image-path('mask100.png')) 0 0 no-repeat;
+    background-size: 120px 120px;
+  }
+}
+
 footer{
   bottom: 0;
   background: #2f363d;

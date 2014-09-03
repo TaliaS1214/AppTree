@@ -1,14 +1,54 @@
-<a  href="https://twitter.com/share"
+
+<div id="app-detail-sidebar">
+  <div class="artwork">
+    <img class="app-icon-large" src="{{large_avatar_url}}" />
+    <span class="mask"></span>
+  </div>
+  <a href="{{track_view_url}}" target="_blank">App Store</a> | <a class="send-to-device">Send to device</a>
+  <a href="https://twitter.com/share"
     target="_blank"
     class="twitter-share-button"
     data-url="{{currentURL}}"
-    data-lang="en">Tweet</a>
-
-<img src="{{large_avatar_url}}" />
-<h2>{{name}}</h2>
-<p>{{creator}}</p>
-<a href="{{track_view_url}}" target="_blank">App Store</a> | <a class="send-to-device">Send to device</a>
-
-<div id="description">
-  <p>{{description}}</p>
+    data-lang="en">Tweet    
+</a>
+</div>
+<div id="app-detail-main" class="clearfix">
+  <div id="app-detail-header">
+    {{#if signed_in}}
+      {{#if upvotable}}
+      <div class="upvote">
+        {{else}}
+        <div class="upvote upvoted">
+      {{/if}}
+        <div class="upvote-button"></div>
+        <div class="upvote-count">{{upvote_count}}</div>
+      </div>
+    {{else}}
+      <div class="upvote">
+      <div class="upvote-count">{{upvote_count}}</div>
+      </div>
+    {{/if}}
+    <div id="app-header-info">
+      <p class="app-creator">{{creator}}</p>
+      <h2 class="app-name">{{name}}</h2>
+    </div>
+  </div>
+  <div id="screenshots">
+    <div id="images-container">
+      <script type="text/javascript">
+        //this breaks up the screenshots url string into an array and prints them in image tags
+        var str = '{{screenshot_urls}}';
+        var myarray = str.split(',');
+        
+        for(var i = 0; i < myarray.length; i++)
+        {
+           $('#images-container').append("<img src='"+myarray[i]+"' width='230' alt='app screenshot'/>");
+        }
+      </script>
+    </div>
+  </div>
+  
+  <div id="description">
+    <p>{{description}}</p>
+  </div>
 </div>
