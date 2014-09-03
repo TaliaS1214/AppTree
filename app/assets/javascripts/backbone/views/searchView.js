@@ -7,7 +7,9 @@ Discovr.Views.Search = Backbone.View.extend({
   events: {
     'click #search-button': 'searchAndRender'
   },
-  searchAndRender: function() {
+  searchAndRender: function(event) {
+    event.preventDefault();
+
     var searchTerm = this.$('#search-bar').val();
     Discovr.Collections.apps = new Discovr.Collections.App();
     Discovr.Collections.apps.url = '/apps/search';
@@ -15,6 +17,7 @@ Discovr.Views.Search = Backbone.View.extend({
       data: {search_term: searchTerm},
       success: function() {
         Discovr.Views.appList = new Discovr.Views.AppList({collection: Discovr.Collections.apps});
+        Discovr.Views.appList.renderSearchResults();
       }
     });
 

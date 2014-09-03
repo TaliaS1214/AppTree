@@ -1,12 +1,13 @@
 <nav>
   <ul id="main-nav">
+    <li id="home"><h1>app<b>Tree</b>.io</h1></li>
     <li id="discover-button">Discover</li>
 
     {{#if sessionStatus}}
-      <li id="profile-button">Profile</li>
       <li id="sign-out-button">Sign Out</li>
+      <li id="profile-button">Profile</li>
     {{else}}
-      <li id="sign-in-button">Sign Up/Sign In</li>
+      <li id="sign-in-button">Register or Sign In</li>
     {{/if}}
   </ul>
 </nav>

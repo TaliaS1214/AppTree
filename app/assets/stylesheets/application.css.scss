@@ -44,7 +44,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
+  min-width: 1024px;
 	line-height: 1;
 }
 ol, ul {
@@ -56,36 +58,76 @@ table {
 }
 
 
+
 //::::::::::::::::: Navigation ::::::::::::::::::
-#main-nav {
+header.top-bar{
+  background: #2f363d;  
+  height: 45px;
+  h1{
+    color: white;
+    margin: 0;
+    line-height: 1.4;
+  }
+  #main-nav {
+    width: 1024px;
+    margin: auto;
+    font-size: 14px;
+  	li {
+  	  float: right;
+  	  cursor: pointer;
+  		display: inline-block;
+  		color: white;
+      line-height: 1.4;
+      padding: 13px 20px;
+      border-right:1px solid rgba(255,255,255,.15);
+      border-left:1px solid rgba(255,255,255,.15);
 
-	li {
-		display: inline-block;
-		color: white;
-	}
+  	  &#home, &#discover-button{
+  	    color: white;
+    	  float: left;
+        border-left: none;
+  	  }
+  	  &#sign-out-button{
+    	  border-left: none;
+  	  }
 
-	li:hover {
-		background-color: #2ba6cb;
-	}
-
+  	}
+  
+  	li:hover {
+  		background-color: #2ba6cb;
+  	}    
+  }
 }
-
 #side-nav {
   width: 175px;
   display: block;
   overflow: scroll;
   float: left;
 
-  li {
+  li{
+    cursor: pointer;
     padding: 5px 10px;
     border-radius: 10px;
-
+    position: relative;
   }
-
+  
   li:hover {
     color: white;
-    background: #C0C0C0;
+    background: #555;
   }
+  
+  li:after {
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 26px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid blue;
+   border-bottom: 13px solid transparent;
+}
+  
 }
 
 
@@ -124,39 +166,70 @@ table {
 	}
 }
 
-
+.row{
+  margin: auto;
+  float: none;
+  clear: both;
+  width: 1000px;
+}
 //::::::::::::::::: Apps ::::::::::::::::::
+#app-search-and-list{
+  width: 100%;
+  background: #f5f5f5;
+  padding: 50px 0 75px;
+  form{
+    width: 900px;
+    margin: auto;
+  }
+}
 
-#app-search-and-list {
-  display: block;
-  float:left;
-  width:800px;
+#app-search-and-list, .row {
   #search {
     position: relative;
-    width: 700px;
     top: 0;
     display: block;
-
+    label{
+      font-size: 20px;
+      color: #2f363d;
+      float: left;
+    }
     #search-bar {
       width: 500px;
       display: block;
       float: left;
+      border: none;
+      padding: 0px;
+      margin-left: 20px;
+      height: 50px;
+      margin-top:-10px;
+      border-radius: 5px;
+      font-size: 18px;
+      box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
     }
 
     #search-button {
       width: 100px;
-      height: 37px;
+      margin-top:-10px;
+      font-family: "Proxima Nova";
+      color:white;
+      font-size:18px;
       padding: 0;
-      float: right;
-      border-radius: 4px;
+      float: left;
+      background:#ff8448;
+      border: none;
+      height: 50px;
+      margin-left:15px;
+      border-radius: 5px;
+      -webkit-font-smoothing: antialiased;  
     }
 
   }
 
   #app-list-container {
-    clear: both;
     overflow: scroll;
     margin-top: 50px;
+    float: right;
+    width: 800px;
 
     .app-single {
       width:250px;

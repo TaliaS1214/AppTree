@@ -22,7 +22,10 @@ Discovr.Views.Genre = Backbone.View.extend({
     Discovr.Collections.apps.url = '/apps/' + genreName;
     Discovr.Collections.apps.fetch({
       success: function() {
-        Discovr.Views.appList = new Discovr.Views.AppList({collection: Discovr.Collections.apps});
+        Discovr.Views.appList = new Discovr.Views.AppList({
+          collection: Discovr.Collections.apps
+        });
+        Discovr.Views.appList.renderGenreApps();
       }
     });
   }
