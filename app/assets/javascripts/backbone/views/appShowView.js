@@ -8,6 +8,7 @@ Discovr.Views.AppShow = Backbone.View.extend({
 
   render: function() {
     this.model.set('currentURL', document.URL);
+    this.model.set('screenshot_urls', this.model.get('screenshot_urls').split(','));
     this.$el.html(this.appShowTemplate(this.model.toJSON()));
   }
 });

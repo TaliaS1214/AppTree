@@ -16,6 +16,7 @@ Discovr.Views.Genre = Backbone.View.extend({
   },
 
   displayApps: function() {
+    $('body').attr('class', 'browse-genre');
     this.$el.siblings().removeClass('active');
     this.$el.addClass('active');
     var genreName = this.model.get('name');

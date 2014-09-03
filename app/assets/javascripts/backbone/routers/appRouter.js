@@ -30,6 +30,7 @@ Discovr.Routers.App = Backbone.Router.extend({
   },
 
   index: function() {
+    $('body').attr('class', 'home/discover');
     Discovr.Collections.topApps = new Discovr.Collections.App();
     Discovr.Collections.topApps.url = '/apps/top';
     Discovr.Collections.topApps.fetch({
@@ -42,6 +43,7 @@ Discovr.Routers.App = Backbone.Router.extend({
   },
 
   discover: function() {
+    $('body').attr('class', 'home/discover');
     $('#genre-list').empty();
     Discovr.Models.currentUser.fetch({
       success: function() {

@@ -23,6 +23,7 @@ Discovr.Views.Navigation = Backbone.View.extend({
 
   loadHomePage: function() {
     Discovr.Routers.app.navigate('');
+    $('body').attr('class', 'home/discover');
 
     Discovr.Views.genreList = new Discovr.Views.GenreList({collection: Discovr.Collections.genres});
     Discovr.Views.genreList.renderAll();
@@ -45,6 +46,7 @@ Discovr.Views.Navigation = Backbone.View.extend({
 
   loadAllGenres: function() {
     Discovr.Routers.app.navigate('discover');
+    $('body').attr('class', 'home/discover');
 
     $('#app-show-page').hide();
     $('#profile-page').hide();

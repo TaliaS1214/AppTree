@@ -9,25 +9,21 @@
     target="_blank"
     class="twitter-share-button"
     data-url="{{currentURL}}"
-    data-lang="en">Tweet    
+    data-lang="en">Tweet
 </a>
 </div>
 <div id="app-detail-main" class="clearfix">
   <div id="app-detail-header">
-    {{#if signed_in}}
-      {{#if upvotable}}
-      <div class="upvote">
-        {{else}}
-        <div class="upvote upvoted">
-      {{/if}}
-        <div class="upvote-button"></div>
-        <div class="upvote-count">{{upvote_count}}</div>
-      </div>
-    {{else}}
-      <div class="upvote">
-      <div class="upvote-count">{{upvote_count}}</div>
-      </div>
-    {{/if}}
+
+  {{#if upvotable}}
+    <div class="upvote">
+  {{else}}
+    <div class="upvote upvoted">
+  {{/if}}
+    <div class="upvote-button"></div>
+    <div class="upvote-count">{{upvote_count}}</div>
+  </div>
+
     <div id="app-header-info">
       <p class="app-creator">{{creator}}</p>
       <h2 class="app-name">{{name}}</h2>
@@ -35,19 +31,12 @@
   </div>
   <div id="screenshots">
     <div id="images-container">
-      <script type="text/javascript">
-        //this breaks up the screenshots url string into an array and prints them in image tags
-        var str = '{{screenshot_urls}}';
-        var myarray = str.split(',');
-        
-        for(var i = 0; i < myarray.length; i++)
-        {
-           $('#images-container').append("<img src='"+myarray[i]+"' width='230' alt='app screenshot'/>");
-        }
-      </script>
+      {{#each screenshot_urls}}
+        <img src="{{this}}" />
+      {{/each}}
     </div>
   </div>
-  
+
   <div id="description">
     <p>{{description}}</p>
   </div>
