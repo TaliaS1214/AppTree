@@ -42,7 +42,7 @@ Discovr.Views.Navigation = Backbone.View.extend({
     $('#profile-page').hide();
     $('#main-content').show();
 
-    $('#results-title').html('Find the Best Apps!');
+    $('#results-title').html('Find the Best Apps');
     $('#app-list-container').empty();
     Discovr.Collections.genres.fetch({ reset: true });
   },

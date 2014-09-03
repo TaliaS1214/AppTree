@@ -11,13 +11,14 @@ Discovr.Views.Search = Backbone.View.extend({
 
   searchAndRender: function(event) {
     event.preventDefault();
+
     var searchTerm = this.$('#search-bar').val();
-    $('#results-title').html('Search Results for "' + searchTerm + '"');
     Discovr.Collections.apps = new Discovr.Collections.App();
     Discovr.Collections.apps.url = '/apps/search';
     Discovr.Collections.apps.fetch({
       data: {search_term: searchTerm},
       success: function() {
+        $('#results-title').html('Search Results for "' + searchTerm + '"');
         Discovr.Views.appList = new Discovr.Views.AppList({collection: Discovr.Collections.apps});
         Discovr.Views.appList.renderSearchResults();
       }
