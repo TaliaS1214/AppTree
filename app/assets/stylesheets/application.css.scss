@@ -98,12 +98,36 @@ header.top-bar{
   	}    
   }
 }
+
+#results-title{
+  margin-top: 40px;
+  border-bottom: 1px solid #ddd;
+  display:block;
+  float:left;
+  width: 800px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
 #side-nav {
   width: 175px;
   display: block;
   overflow: scroll;
   float: left;
-
+  ul{
+    padding-top: 5px ;
+  }
+  h2{
+    margin: 0;
+    margin-top: 40px;
+    width: 150px;
+    font-size: 14px;
+    line-height: 22px;
+    padding-left: 5px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    
+  }
   li{
     cursor: pointer;
     padding: 5px 10px;
@@ -116,7 +140,7 @@ header.top-bar{
     background: #555;
   }
   
-  li:after {
+  li:hover:after {
    content:"";
    position: absolute;
    right: 100%;
@@ -126,7 +150,7 @@ header.top-bar{
    border-top: 13px solid transparent;
    border-right: 26px solid blue;
    border-bottom: 13px solid transparent;
-}
+  }
   
 }
 
@@ -227,8 +251,8 @@ header.top-bar{
 
   #app-list-container {
     overflow: scroll;
-    margin-top: 50px;
-    float: right;
+    margin-top: 20px;
+    float: left;
     width: 800px;
 
     .app-single {
@@ -248,10 +272,10 @@ header.top-bar{
         top: 0;
         left: 0;
         z-index: 1;
-        width: 57px;
-        height: 57px;
-        background: url(image-path('mask100.png')) 0 0 no-repeat;
-        background-size: 57px 57px;
+        width: 58px;
+        height: 58px;
+        background: url(image-path('mask100-white.png')) 0 0 no-repeat;
+        background-size: 58px 58px;
       }
       .upvote{
         width: 35px;
