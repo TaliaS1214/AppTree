@@ -14,10 +14,8 @@ Discovr.Views.App = Backbone.View.extend({
   },
 
   render: function() {
-    if (this.model.get('price') === 0) {
-      this.model.set('free', true);
-    }
-
+    if (this.model.get('price') === 0) { this.model.set('free', true);1 }
+    if (Discovr.Models.currentUser.get('email')) { this.model.set('signed_in', true); }
     this.$el.html(this.appTemplate(this.model.toJSON()));
   },
 
@@ -26,11 +24,14 @@ Discovr.Views.App = Backbone.View.extend({
       this.model.fetch({
         url: '/apps/' + this.model.id + '/upvote',
         type: 'put',
+        success: function() {
+        }.bind(this)
       });
     }
     else {
       this.model.save();
     }
+    this.$('.upvote').toggleClass('upvoted');
   },
 
   sendToDevice: function() {
