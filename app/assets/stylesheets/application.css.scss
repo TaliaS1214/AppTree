@@ -69,7 +69,21 @@ table {
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* close commented backslash hack */
-
+#profile-page{
+  &:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+   }
+   #app-list-container{
+     float: none;
+     width: 1000px;
+     margin: auto;
+   }
+}
 
 //::::::::::::::::: Navigation ::::::::::::::::::
 header.top-bar{
@@ -335,13 +349,12 @@ header.top-bar{
   width: 800px;
   margin: auto;
   display: block;
-  clear: both;
   #app-detail-sidebar{
-    width: 150px;
+    width: 120px;
     float: left;
   }
   #app-detail-main{
-    width: 650px;
+    width: 680px;
     float: left;
     color: #2f363d;
     .upvote{
@@ -356,17 +369,21 @@ header.top-bar{
       text-align: center;
       .upvote-button{
         display: block;
-        margin:10px auto 5px;
-        height: 21px;
-        width: 21px;
-        background: url(image-path('upvote.png')) 0 0 no-repeat;
-        background-size: 21px 21px;
+        margin: 30px auto 5px;
+        height: 34px;
+        width: 34px;
+        background: url(image-path('upvote-larger.png')) 0 0 no-repeat;
+        background-size: 34px 34px;
         -webkit-user-select: none; /* Chrome/Safari */        
         -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* IE10+ */
         /* Rules below not implemented in browsers yet */
         -o-user-select: none;
         user-select: none;
+      }
+      .upvote-count{
+        color: #bcbcbc;
+        font-size: 20px;
       }
     }
     #screenshots{
@@ -590,7 +607,7 @@ header.top-bar{
       width: 150px;
 
       font-size: 14px;
-      margin-left:5px;
+      margin-gleft:5px;
       float: left;
       line-height:1.4;
       .app-name {
