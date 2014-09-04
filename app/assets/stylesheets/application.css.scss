@@ -87,7 +87,7 @@ table {
 
 //::::::::::::::::: Navigation ::::::::::::::::::
 header.top-bar{
-  background: #2f363d;  
+  background: #2f363d;
   height: 45px;
   h1{
     color: white;
@@ -118,10 +118,10 @@ header.top-bar{
   	  }
 
   	}
-  
+
   	li:hover {
   		background-color: #2ba6cb;
-  	}    
+  	}
   }
 }
 
@@ -151,7 +151,7 @@ header.top-bar{
     padding-left: 5px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
-    
+
   }
   li{
     cursor: pointer;
@@ -160,12 +160,12 @@ header.top-bar{
     position: relative;
     margin: 0 0 6px;
   }
-  
+
   li:hover, li.active {
     color: white;
     background: #555;
   }
-  
+
   li:hover:after {
    content:"";
    position: absolute;
@@ -177,7 +177,7 @@ header.top-bar{
    border-right: 26px solid blue;
    border-bottom: 13px solid transparent;
   }
-  
+
 }
 
 
@@ -196,7 +196,7 @@ header.top-bar{
   #apps-not-in-database{
     width: 400px;
     float: left;
-  } 
+  }
 }
 //::::::::::::::::: User Auth ::::::::::::::::::
 
@@ -337,12 +337,12 @@ header.top-bar{
       border: none;
       height: 50px;
       border-radius: 0 3px 3px 0;
-      -webkit-font-smoothing: antialiased;  
+      -webkit-font-smoothing: antialiased;
     }
 
   }
 
-  
+
 
 }
 .app-detail #app-list-container{
@@ -360,7 +360,7 @@ header.top-bar{
     .upvote{
       float: left;
       width: 60px;
-      -webkit-user-select: none; /* Chrome/Safari */        
+      -webkit-user-select: none; /* Chrome/Safari */
       -moz-user-select: none; /* Firefox */
       -ms-user-select: none; /* IE10+ */
       /* Rules below not implemented in browsers yet */
@@ -374,7 +374,7 @@ header.top-bar{
         width: 34px;
         background: url(image-path('upvote-larger.png')) 0 0 no-repeat;
         background-size: 34px 34px;
-        -webkit-user-select: none; /* Chrome/Safari */        
+        -webkit-user-select: none; /* Chrome/Safari */
         -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* IE10+ */
         /* Rules below not implemented in browsers yet */
@@ -394,13 +394,13 @@ header.top-bar{
       height: 430px;
       clear: both;
       overflow: scroll;
-       position: relative; 
+       position: relative;
       overflow-y: hidden;
       #images-container{
         width: 1280px;
         img{
           margin: 12px 0 0 12px;
-           position: relative; 
+           position: relative;
         }
       }
     }
@@ -440,7 +440,7 @@ header.top-bar{
   margin-top: 10px;
   float: left;
   width: 800px;
-  
+
   .app-single {
     width: 450px;
     margin: 10px 5px;
@@ -465,10 +465,10 @@ header.top-bar{
         width: 40px;
         height: 50px;
         float:left;
-        -webkit-user-select: none; /* Chrome/Safari */        
+        -webkit-user-select: none; /* Chrome/Safari */
         -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* IE10+ */
-        
+
         /* Rules below not implemented in browsers yet */
         -o-user-select: none;
         user-select: none;
@@ -479,18 +479,18 @@ header.top-bar{
           width: 21px;
           background: url(image-path('upvote.png')) 0 0 no-repeat;
           background-size: 21px 21px;
-          -webkit-user-select: none; /* Chrome/Safari */        
+          -webkit-user-select: none; /* Chrome/Safari */
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* IE10+ */
-            
+
             /* Rules below not implemented in browsers yet */
             -o-user-select: none;
             user-select: none;
         }
-        &.upvoted{ 
+        &.upvoted{
           .upvote-count{
             color: #fd8450
-            
+
           }
           .upvote-button{
             background: url(image-path('upvoted.png')) 0 0 no-repeat;
@@ -504,10 +504,10 @@ header.top-bar{
           width: 40px;
           color: #bbb;
           text-align: center;
-          -webkit-user-select: none; /* Chrome/Safari */        
+          -webkit-user-select: none; /* Chrome/Safari */
           -moz-user-select: none; /* Firefox */
           -ms-user-select: none; /* IE10+ */
-          
+
           /* Rules below not implemented in browsers yet */
           -o-user-select: none;
           user-select: none;
@@ -556,7 +556,7 @@ header.top-bar{
     }
 
   }
-  
+
   .app-single.grid {
     width:250px;
     margin: 10px 5px;

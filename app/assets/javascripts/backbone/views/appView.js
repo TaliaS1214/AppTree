@@ -15,23 +15,33 @@ Discovr.Views.App = Backbone.View.extend({
 
   render: function() {
     if (this.model.get('price') == 0.0) { this.model.set('free', true);1 }
-    if (Discovr.Models.currentUser.get('email')) { this.model.set('signed_in', true); }
+    if (Discovr.Models.currentUser.get('email')) {
+        this.model.set('signed_in', true);
+      }
     this.$el.html(this.appTemplate(this.model.toJSON()));
+    if (!Discovr.Models.currentUser.get('email')) {
+      this.$('.upvote').removeClass('upvoted');
+    }
   },
 
   increaseUpvoteCount: function() {
-    if (this.model.get('id')){
-      this.model.fetch({
-        url: '/apps/' + this.model.id + '/upvote',
-        type: 'put',
-        success: function() {
-        }.bind(this)
-      });
+    if (Discovr.Models.currentUser.get('email')) {
+      if (this.model.get('id')){
+        this.model.fetch({
+          url: '/apps/' + this.model.id + '/upvote',
+          type: 'put',
+          success: function() {
+          }.bind(this)
+        });
+      }
+      else {
+        this.model.save();
+      }
+      this.$('.upvote').toggleClass('upvoted');
     }
     else {
-      this.model.save();
+      $('.modal').empty().show().append(Discovr.Views.nav.signInTemplate());
     }
-    this.$('.upvote').toggleClass('upvoted');
   },
 
   sendToDevice: function() {

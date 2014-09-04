@@ -25,13 +25,13 @@ Discovr.Routers.App = Backbone.Router.extend({
     ''                    : 'index',
     'myHome'              : 'userHome',
     'discover'            : 'discover',
-    'genres/:genreName'   : 'genre',
+    ':genreName/apps'     : 'genre',
     'profile'             : 'userProfile',
-    'apps/:id'             : 'appSinglePage'
+    'apps/:id'            : 'appSinglePage'
   },
 
   index: function() {
-    $('body').attr('class', 'discover');
+    $('body').attr('class', 'home');
     Discovr.Collections.topApps = new Discovr.Collections.App();
     Discovr.Collections.topApps.url = '/apps/top';
     Discovr.Collections.topApps.fetch({
@@ -58,7 +58,7 @@ Discovr.Routers.App = Backbone.Router.extend({
     // this.$el.siblings().removeClass('active');
     // this.$el.addClass('active');
     Discovr.Collections.apps = new Discovr.Collections.App();
-    Discovr.Collections.apps.url = '/apps/' + genreName;
+    Discovr.Collections.apps.url = '/' + genreName + '/apps';
     Discovr.Collections.apps.fetch({
       success: function() {
         Discovr.Views.appList = new Discovr.Views.AppList({
