@@ -328,224 +328,14 @@ header.top-bar{
 
   }
 
-  #app-list-container {
-    margin-top: 10px;
-    float: left;
-    width: 800px;
-    
-    .app-single {
-      width: 450px;
-      margin: 10px 5px;
-      float: left;
-
-        div.artwork{
-          position: relative;
-          float: left;
-        }
-        div.artwork>span.mask{
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
-          width: 60px;
-          height: 60px;
-          background: url(image-path('mask100.png')) 0 0 no-repeat;
-          background-size: 60px 60px;
-        }
-        .upvote{
-          width: 40px;
-          height: 50px;
-          float:left;
-          -webkit-user-select: none; /* Chrome/Safari */        
-          -moz-user-select: none; /* Firefox */
-          -ms-user-select: none; /* IE10+ */
-          
-          /* Rules below not implemented in browsers yet */
-          -o-user-select: none;
-          user-select: none;
-          .upvote-button{
-            display: block;
-            margin:10px auto 5px;
-            height: 21px;
-            width: 21px;
-            background: url(image-path('upvote.png')) 0 0 no-repeat;
-            background-size: 21px 21px;
-            -webkit-user-select: none; /* Chrome/Safari */        
-              -moz-user-select: none; /* Firefox */
-              -ms-user-select: none; /* IE10+ */
-              
-              /* Rules below not implemented in browsers yet */
-              -o-user-select: none;
-              user-select: none;
-          }
-          &.upvoted{ 
-            .upvote-count{
-              color: #fd8450
-              
-            }
-            .upvote-button{
-              background: url(image-path('upvoted.png')) 0 0 no-repeat;
-              background-size: 21px 21px;
-            }
-          }
-          .upvote-count {
-            font-size: 14px;
-            font-weight: 600;
-            -webkit-font-smoothing: antialiased;
-            width: 40px;
-            color: #bbb;
-            text-align: center;
-            -webkit-user-select: none; /* Chrome/Safari */        
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* IE10+ */
-            
-            /* Rules below not implemented in browsers yet */
-            -o-user-select: none;
-            user-select: none;
-            display: inline-block;
-          }
-      }
-      .app-image {
-        display: inline-block;
-        height: 60px;
-        width: 60px;
-      }
-      .app-details{
-        width: 300px;
-
-        font-size: 14px;
-        margin-left:5px;
-        float: left;
-        line-height:1.4;
-        .app-name {
-          font-weight: 600;
-          font-size: 16px;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        	overflow: hidden;
-        	line-height:1.4;
-          margin:0;
-          width:230px;
-        }
-				.app-name:hover {
-					text-decoration: underline;
-				}
-        .app-price {
-          color: #229fd5;
-          font-size: 16px;
-          font-weight: 600;
-        }
-        .app-links{
-          font-size: 12px;
-          a{
-            color: #25282a;
-          }
-					a:hover{
-						text-decoration: underline;
-					}
-        }
-      }
-
-    }
-    
-    .app-single.grid {
-      width:250px;
-      margin: 10px 5px;
-      float: left;
-        &:nth-child(3n+1){
-          clear:left;
-        }
-        div.artwork{
-          position: relative;
-          float: left;
-        }
-        div.artwork>span.mask{
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
-          width: 58px;
-          height: 58px;
-          background: url(image-path('mask100-white.png')) 0 0 no-repeat;
-          background-size: 58px 58px;
-        }
-        .upvote{
-          width: 35px;
-          height: 50px;
-          float:left;
-          .upvote-button{
-            display: block;
-            margin:5px auto;
-            height: 17px;
-            width: 17px;
-            background: url(image-path('upvote.png')) 0 0 no-repeat;
-            background-size: 17px 17px;
-          }
-          .upvote-count {
-            font-size: 12px;
-            width: 35px;
-            color: #aaa;
-            text-align: center;
-            display: inline-block;
-          }
-      }
-      .app-image {
-        display: inline-block;
-        max-height: 80px;
-      }
-      .app-details{
-        width: 150px;
-
-        font-size: 14px;
-        margin-left:5px;
-        float: left;
-        line-height:1.4;
-        .app-name {
-          font-weight: 600;
-          font-size: 14px;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        	overflow: hidden;
-        	line-height:1.4;
-          margin:0;
-        }
-				.app-name:hover {
-					text-decoration: underline;
-				}
-        .app-price {
-          color: #229fd5;
-          font-weight: bold;
-        }
-        .app-links{
-          font-size: 12px;
-          a{
-            color: #25282a;
-          }
-					a:hover{
-						text-decoration: underline;
-					}
-        }
-      }
-
-    }
-  }
+  
 
 }
-#app-show-page{
+.app-detail #app-list-container{
   width: 800px;
   margin: auto;
   display: block;
   clear: both;
-  &:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-  }
   #app-detail-sidebar{
     width: 150px;
     float: left;
@@ -629,7 +419,209 @@ header.top-bar{
     background-size: 120px 120px;
   }
 }
+#app-list-container {
+  margin-top: 10px;
+  float: left;
+  width: 800px;
+  
+  .app-single {
+    width: 450px;
+    margin: 10px 5px;
+    float: left;
 
+      div.artwork{
+        position: relative;
+        float: left;
+      }
+      div.artwork>span.mask{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 60px;
+        height: 60px;
+        background: url(image-path('mask100.png')) 0 0 no-repeat;
+        background-size: 60px 60px;
+      }
+      .upvote{
+        width: 40px;
+        height: 50px;
+        float:left;
+        -webkit-user-select: none; /* Chrome/Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+ */
+        
+        /* Rules below not implemented in browsers yet */
+        -o-user-select: none;
+        user-select: none;
+        .upvote-button{
+          display: block;
+          margin:10px auto 5px;
+          height: 21px;
+          width: 21px;
+          background: url(image-path('upvote.png')) 0 0 no-repeat;
+          background-size: 21px 21px;
+          -webkit-user-select: none; /* Chrome/Safari */        
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+            
+            /* Rules below not implemented in browsers yet */
+            -o-user-select: none;
+            user-select: none;
+        }
+        &.upvoted{ 
+          .upvote-count{
+            color: #fd8450
+            
+          }
+          .upvote-button{
+            background: url(image-path('upvoted.png')) 0 0 no-repeat;
+            background-size: 21px 21px;
+          }
+        }
+        .upvote-count {
+          font-size: 14px;
+          font-weight: 600;
+          -webkit-font-smoothing: antialiased;
+          width: 40px;
+          color: #bbb;
+          text-align: center;
+          -webkit-user-select: none; /* Chrome/Safari */        
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* IE10+ */
+          
+          /* Rules below not implemented in browsers yet */
+          -o-user-select: none;
+          user-select: none;
+          display: inline-block;
+        }
+    }
+    .app-image {
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+    }
+    .app-details{
+      width: 300px;
+
+      font-size: 14px;
+      margin-left:5px;
+      float: left;
+      line-height:1.4;
+      .app-name {
+        font-weight: 600;
+        font-size: 16px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      	overflow: hidden;
+      	line-height:1.4;
+        margin:0;
+        width:230px;
+      }
+			.app-name:hover {
+				text-decoration: underline;
+			}
+      .app-price {
+        color: #229fd5;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .app-links{
+        font-size: 12px;
+        a{
+          color: #25282a;
+        }
+				a:hover{
+					text-decoration: underline;
+				}
+      }
+    }
+
+  }
+  
+  .app-single.grid {
+    width:250px;
+    margin: 10px 5px;
+    float: left;
+      &:nth-child(3n+1){
+        clear:left;
+      }
+      div.artwork{
+        position: relative;
+        float: left;
+      }
+      div.artwork>span.mask{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 58px;
+        height: 58px;
+        background: url(image-path('mask100-white.png')) 0 0 no-repeat;
+        background-size: 58px 58px;
+      }
+      .upvote{
+        width: 35px;
+        height: 50px;
+        float:left;
+        .upvote-button{
+          display: block;
+          margin:5px auto;
+          height: 17px;
+          width: 17px;
+          background: url(image-path('upvote.png')) 0 0 no-repeat;
+          background-size: 17px 17px;
+        }
+        .upvote-count {
+          font-size: 12px;
+          width: 35px;
+          color: #aaa;
+          text-align: center;
+          display: inline-block;
+        }
+    }
+    .app-image {
+      display: inline-block;
+      max-height: 80px;
+    }
+    .app-details{
+      width: 150px;
+
+      font-size: 14px;
+      margin-left:5px;
+      float: left;
+      line-height:1.4;
+      .app-name {
+        font-weight: 600;
+        font-size: 14px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      	overflow: hidden;
+      	line-height:1.4;
+        margin:0;
+      }
+			.app-name:hover {
+				text-decoration: underline;
+			}
+      .app-price {
+        color: #229fd5;
+        font-weight: bold;
+      }
+      .app-links{
+        font-size: 12px;
+        a{
+          color: #25282a;
+        }
+				a:hover{
+					text-decoration: underline;
+				}
+      }
+    }
+
+  }
+}
 footer{
   bottom: 0;
   background: #2f363d;
