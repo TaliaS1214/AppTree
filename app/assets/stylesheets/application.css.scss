@@ -152,7 +152,7 @@ header.top-bar{
 }
 
 #side-nav {
-  width: 175px;
+  width: 150px;
   display: block;
   overflow: scroll;
   float: left;
@@ -424,12 +424,53 @@ header.top-bar{
 .app-name{
   cursor: pointer;
 }
+#app-links{
+  padding: 0 0 30px 32px;
+  width: 600px;
+  position: relative;
+  margin-bottom: 20px;
+  clear: both;
+  .app-store-link{
+    width: 120px;
+    cursor: pointer;
+    float: left;
+    height: 34px;
+    display: block;
+    background: url(image-path('download-app-store.png')) 0 0 no-repeat;
+    background-size: 120px 34px;
+    overflow: hidden;
+    color: transparent;
+  }
+  .send-to-device{
+    height: 34px;
+    margin-left: 8px;
+    display: block;
+    padding: 10px 10px 0 25px;
+    cursor: pointer;
+    float: left;    background: #fd8450 url(image-path('iphone-icon-white.png')) 5px 5px no-repeat;
+    background-size:  14px 24px;
+    border-radius: 3px;
+    color: white;
+  }
+}
+.twitter-share-button{
+  margin-top: 20px;
+  display: block;
+  margin: 20px auto;
+  width: 86px !important;
+  text-align: center;
+}
+.app-detail #results-title{
+  visibility: hidden;
+  margin-top: 10px;
+}
 .app-detail #app-list-container{
   width: 800px;
   margin: auto;
   display: block;
   #app-detail-sidebar{
     width: 120px;
+    text-align: center;
     float: left;
   }
   #app-detail-main{
@@ -473,6 +514,7 @@ header.top-bar{
       width: 680px;
       height: 430px;
       clear: both;
+      margin-left: 20px;
       overflow: scroll;
        position: relative; 
       overflow-y: hidden;
@@ -484,17 +526,26 @@ header.top-bar{
         }
       }
     }
+    #description p{
+      padding: 20px 20px 20px 35px;;
+    }
     #app-header-info{
-      width: 580px;
+      width: 620px;
       height: 120px;
-      padding-top: 20px;
-      float: left
+      float: left;
+      margin-bottom:15px;
+      display: table;
+      span{
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
     .app-creator{
       font-size: 20px;
     }
     .app-name{
       font-size: 26px;
+      line-height: 1.2;
     }
   }
   div.artwork{
