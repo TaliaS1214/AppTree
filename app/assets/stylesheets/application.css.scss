@@ -152,7 +152,7 @@ header.top-bar{
 }
 
 #side-nav {
-  width: 150px;
+  width: 185px;
   display: block;
   overflow: scroll;
   float: left;
@@ -176,6 +176,7 @@ header.top-bar{
     border-radius: 10px;
     position: relative;
     margin: 0 0 6px;
+    width: 150px;
   }
   
   li:hover, li.active {
