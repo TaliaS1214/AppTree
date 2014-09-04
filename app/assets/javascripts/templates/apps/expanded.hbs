@@ -4,16 +4,12 @@
     <img class="app-icon-large" src="{{large_avatar_url}}" />
     <span class="mask"></span>
   </div>
-  <a href="{{track_view_url}}" target="_blank">App Store</a>
-  <br/>
-  <a class="send-to-device">Send to device</a>
-  <br/>
   <a href="https://twitter.com/share"
     target="_blank"
     class="twitter-share-button"
     data-url="{{currentURL}}"
     data-lang="en">Tweet
-</a>
+  </a>
 </div>
 <div id="app-detail-main" class="clearfix">
   <div id="app-detail-header">
@@ -28,8 +24,14 @@
   </div>
 
     <div id="app-header-info">
-      <p class="app-creator">{{creator}}</p>
-      <h2 class="app-name">{{name}}</h2>
+      <span id="header-text">
+        <h2 class="app-name">{{name}}</h2>
+        <p class="app-creator">By {{creator}}</p>
+      </span>
+    </div>
+    <div id="app-links">
+      <a class="app-store-link" href="{{track_view_url}}" target="_blank" title="Download {{name}} in App Store"></a>
+      <a class="send-to-device">Send to device</a>
     </div>
   </div>
   <div id="screenshots">

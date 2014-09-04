@@ -46,7 +46,7 @@ Discovr.Views.Navigation = Backbone.View.extend({
 
   loadAllGenres: function() {
     Discovr.Routers.app.navigate('discover');
-    $('body').attr('class', 'home/discover');
+    $('body').attr('class', 'discover');
 
     $('#app-show-page').hide();
     $('#profile-page').hide();
