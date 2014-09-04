@@ -26,8 +26,12 @@ Discovr.Views.AppList = Backbone.View.extend({
     $('#apps-not-in-database').prepend('<h2 class="not-in-database">iTunes App Store - Be the first to add to AppTree</h2>');
   },
 
-  renderProfileApps: function() {
-    this.renderAll('profile');
+  renderUpvotedApps: function() {
+    this.renderAll('profile upvoted apps');
+  },
+
+  renderBookmarkedApps: function() {
+    this.renderAll('profile bookmarked apps');
   },
 
   renderAll: function(buttonClicked) {
@@ -47,6 +51,12 @@ Discovr.Views.AppList = Backbone.View.extend({
     }
     else if (buttonClicked === 'top'){
       appStorageContainer = this.$('#top-apps');
+    }
+    else if (buttonClicked === 'profile upvoted apps') {
+      appStorageContainer = $('#upvoted-apps-list');
+    }
+    else if (buttonClicked === 'profile bookmarked apps') {
+      appStorageContainer = $('#bookmarked-apps-list');
     }
 
     appStorageContainer.append(appView.$el);

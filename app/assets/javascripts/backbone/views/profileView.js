@@ -27,6 +27,7 @@ Discovr.Views.Profile = Backbone.View.extend({
     var upvotedAppsView = new Discovr.Views.AppList({collection: this.upvoteCollection});
     var bookmarkedAppsView = new Discovr.Views.AppList({collection: this.bookmarkCollection});
 
-    this.$('#downloaded-apps-list')
+    upvotedAppsView.renderUpvotedApps();
+    bookmarkedAppsView.renderBookmarkedApps();
   }
 });
