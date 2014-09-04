@@ -132,6 +132,9 @@ header.top-bar{
   width: 800px;
   padding-bottom: 10px;
   font-weight: bold;
+  .browse-genre &, .discover &{
+    border-bottom: 1px solid #ddd;
+  }
 }
 
 #side-nav {
@@ -196,6 +199,54 @@ header.top-bar{
   #apps-not-in-database{
     width: 400px;
     float: left;
+    .upvote{
+      margin-top: 12px;
+      width: 60px;
+      -webkit-transition: margin-top .2s ease;
+      cursor: pointer;
+    }
+    .upvote-button{
+    width: 60px;
+    cursor: pointer;
+    text-align: left;
+    background: none;
+    -webkit-transition: all .2s ease;
+      &:after{
+        content: "+ Add";
+        font-size:13px;
+        width:45px;
+        border-radius: 3px;
+        padding: 2px 8px 2px 6px;
+        color: #aaa;
+        border:1px solid #bbb;
+        text-align: center;
+      }
+    }
+    .upvoted .upvote-button:after{
+      color:#fd8450;
+      border: 1px solid #fd8450;
+      cursor: pointer;
+    }
+    .upvote-count{
+      opacity: 0;
+      width: 55px;
+      -webkit-transition: opacity .5s ease;
+    }
+    .upvoted .upvote-count{
+      opacity: 1;
+      -webkit-transition: opacity .5s ease;
+      &:after{
+        content: " upvote";
+        font-size: 11px;
+        display: block;
+        float:right;
+        padding: 1px 8px 0 0;
+      }
+    }
+    .upvoted{
+      margin-top: 2px;
+      -webkit-transition: margin-top .2s ease;
+    }
   } 
 }
 //::::::::::::::::: User Auth ::::::::::::::::::
@@ -371,6 +422,7 @@ header.top-bar{
         display: block;
         margin: 30px auto 5px;
         height: 34px;
+        cursor: pointer;
         width: 34px;
         background: url(image-path('upvote-larger.png')) 0 0 no-repeat;
         background-size: 34px 34px;
@@ -478,6 +530,7 @@ header.top-bar{
           height: 21px;
           width: 21px;
           background: url(image-path('upvote.png')) 0 0 no-repeat;
+          cursor: pointer;
           background-size: 21px 21px;
           -webkit-user-select: none; /* Chrome/Safari */        
             -moz-user-select: none; /* Firefox */
@@ -495,6 +548,7 @@ header.top-bar{
           .upvote-button{
             background: url(image-path('upvoted.png')) 0 0 no-repeat;
             background-size: 21px 21px;
+            cursor: pointer;
           }
         }
         .upvote-count {
@@ -589,6 +643,7 @@ header.top-bar{
           height: 17px;
           width: 17px;
           background: url(image-path('upvote.png')) 0 0 no-repeat;
+          cursor: pointer;
           background-size: 17px 17px;
         }
         .upvote-count {
