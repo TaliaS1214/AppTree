@@ -50,7 +50,6 @@ Discovr.Views.Modal = Backbone.View.extend({
       data: user,
       type: 'post',
       success: function() {
-        Discovr.Routers.app.navigate('');
         Discovr.Views.genreList.renderAll();
         this.closeModal();
       }.bind(this)

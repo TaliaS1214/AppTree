@@ -20,9 +20,9 @@ Discovr.Views.Genre = Backbone.View.extend({
     this.$el.siblings().removeClass('active');
     this.$el.addClass('active');
     var genreName = this.model.get('name');
-    Discovr.Routers.app.navigate('genres/' + genreName);
+    Discovr.Routers.app.navigate('/' + genreName + '/apps');
     Discovr.Collections.apps = new Discovr.Collections.App();
-    Discovr.Collections.apps.url = '/apps/' + genreName;
+    Discovr.Collections.apps.url = '/' + genreName + '/apps';
     Discovr.Collections.apps.fetch({
       success: function() {
         Discovr.Views.appList = new Discovr.Views.AppList({

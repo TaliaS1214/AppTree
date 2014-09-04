@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   resources :genres, only: [:index]
+  get '/:genre/apps'      => 'apps#index'
 
   get '/apps/search'      => 'apps#search'
   get '/apps/top'         => 'apps#top'
-  get '/apps/:genre'      => 'apps#index'
   put '/apps/:id/upvote'  => 'apps#toggle_upvote'
   put '/apps/:id/send'    => 'apps#send_and_bookmark'
   resources :apps, only: [:new, :create, :show]

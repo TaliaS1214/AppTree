@@ -13,6 +13,12 @@ class AppsController < ApplicationController
     render json: apps.to_json, status: 200
   end
 
+  def show
+    app = App.find(params[:id])
+    app.upvotable_status(current_user)
+    render json: app.to_json, status: 200
+  end
+
   def create
     app = App.new(app_params)
     app.upvote_count = 1

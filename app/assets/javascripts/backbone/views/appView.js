@@ -41,7 +41,8 @@ Discovr.Views.App = Backbone.View.extend({
   },
 
   openShowPage: function() {
-    // Add routing here
+    Discovr.Routers.app.navigate('apps/' + this.model.id);
+
     $('body').attr('class', 'app-detail');
 
     Discovr.Views.appShow = new Discovr.Views.AppShow({model: this.model});

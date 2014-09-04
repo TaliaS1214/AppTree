@@ -22,11 +22,12 @@ Discovr.Routers.App = Backbone.Router.extend({
   },
 
   routes: {
-    '' : 'index',
-    'myHome' : 'userHome',
-    'discover' : 'discover',
-    'genres/:genre_name' : 'loadGenre',
-    'profile' : 'loadUserProfile'
+    ''                    : 'index',
+    'myHome'              : 'userHome',
+    'discover'            : 'discover',
+    'genres/:genreName'   : 'genre',
+    'profile'             : 'userProfile',
+    'apps/:id'             : 'appSinglePage'
   },
 
   index: function() {
@@ -52,8 +53,41 @@ Discovr.Routers.App = Backbone.Router.extend({
     });
   },
 
-  loadUserProfile: function() {
+  genre: function(genreName) {
+    $('body').attr('class', 'browse-genre');
+    // this.$el.siblings().removeClass('active');
+    // this.$el.addClass('active');
+    Discovr.Collections.apps = new Discovr.Collections.App();
+    Discovr.Collections.apps.url = '/apps/' + genreName;
+    Discovr.Collections.apps.fetch({
+      success: function() {
+        Discovr.Views.appList = new Discovr.Views.AppList({
+          collection: Discovr.Collections.apps
+        });
+        $('#results-title').html(genreName);
+        Discovr.Views.appList.renderGenreApps();
+        Discovr.Views.genreList.renderAll();
+      }
+    });
+  },
+
+  userProfile: function() {
     $('#main-content').hide();
+
+    Discovr.Views.profile = new Discovr.Views.Profile();
+  },
+
+  appSinglePage: function(id) {
+    $('body').attr('class', 'app-detail');
+
+    var appModel = new Discovr.Models.App({id: id})
+
+    appModel.fetch({
+      success: function() {
+        Discovr.Views.genreList.renderAll();
+        Discovr.Views.appShow = new Discovr.Views.AppShow({model: appModel});
+      }
+    });
   }
 
 
