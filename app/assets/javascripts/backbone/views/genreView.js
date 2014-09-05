@@ -19,15 +19,16 @@ Discovr.Views.Genre = Backbone.View.extend({
     $('body').attr('class', 'browse-genre');
     this.$el.siblings().removeClass('active');
     this.$el.addClass('active');
+
+    $('#app-list-container').empty();
+
     var genreName = this.model.get('name');
     Discovr.Routers.app.navigate('/' + genreName + '/apps');
-    Discovr.Collections.apps = new Discovr.Collections.App();
+    // Discovr.Collections.apps = new Discovr.Collections.App();
     Discovr.Collections.apps.url = '/' + genreName + '/apps';
     Discovr.Collections.apps.fetch({
       success: function() {
-        Discovr.Views.appList = new Discovr.Views.AppList({
-          collection: Discovr.Collections.apps
-        });
+        Discovr.Views.appList.collection = Discovr.Collections.apps
         $('#results-title').html(genreName);
         Discovr.Views.appList.renderGenreApps();
       }

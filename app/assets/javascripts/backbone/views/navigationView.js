@@ -28,8 +28,8 @@ Discovr.Views.Navigation = Backbone.View.extend({
     Discovr.Views.genreList = new Discovr.Views.GenreList({collection: Discovr.Collections.genres});
     Discovr.Views.genreList.renderAll();
 
-    $('#app-show-page').hide();
-    $('#profile-page').hide();
+    $('#app-show-page').empty().hide();
+    $('#profile-page').empty().hide();
     $('#main-content').show();
 
     $('#results-title').html('Top Apps on AppTree');
@@ -48,8 +48,8 @@ Discovr.Views.Navigation = Backbone.View.extend({
     Discovr.Routers.app.navigate('discover');
     $('body').attr('class', 'discover');
 
-    $('#app-show-page').hide();
-    $('#profile-page').hide();
+    $('#app-show-page').empty().hide();
+    $('#profile-page').empty().hide();
     $('#main-content').show();
 
     $('#results-title').html('Find the Best Apps!');
@@ -60,8 +60,8 @@ Discovr.Views.Navigation = Backbone.View.extend({
   loadProfilePage: function() {
     Discovr.Routers.app.navigate('users/profile');
 
-    $('#app-show-page').hide();
-    $('#main-content').hide();
+    $('#app-show-page').empty().hide();
+    $('#main-content').empty().hide();
     $('#profile-page').show();
 
     Discovr.Routers.app.navigate('profile');

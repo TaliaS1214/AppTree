@@ -21,17 +21,9 @@ Discovr.Views.AppList = Backbone.View.extend({
     $('<div id="search-results">').appendTo(this.$el)
       .append('<div id="apps-in-database">')
       .append('<div id="apps-not-in-database">');
-    this.renderAll('search');
     $('#apps-in-database').prepend('<h2 class="in-database">Ranking on AppTree</h2>');
     $('#apps-not-in-database').prepend('<h2 class="not-in-database">iTunes App Store - Be the first to add to AppTree</h2>');
-  },
-
-  renderUpvotedApps: function() {
-    this.renderAll('profile upvoted apps');
-  },
-
-  renderBookmarkedApps: function() {
-    this.renderAll('profile bookmarked apps');
+    this.renderAll('search');
   },
 
   renderAll: function(buttonClicked) {
@@ -42,23 +34,22 @@ Discovr.Views.AppList = Backbone.View.extend({
 
   renderOne: function(appModel, buttonClicked) {
     var appView = new Discovr.Views.App({model: appModel});
-    var appStorageContainer;
-    if (buttonClicked === 'genre') {
-      appStorageContainer = this.$el.find('#browse-genre');
-    }
-    else if (buttonClicked === 'search'){
-      appStorageContainer = appModel.id ? this.$('#apps-in-database') : this.$('#apps-not-in-database');
-    }
-    else if (buttonClicked === 'top'){
-      appStorageContainer = this.$('#top-apps');
-    }
-    else if (buttonClicked === 'profile upvoted apps') {
-      appStorageContainer = $('#upvoted-apps-list');
-    }
-    else if (buttonClicked === 'profile bookmarked apps') {
-      appStorageContainer = $('#bookmarked-apps-list');
-    }
-
+    var appStorageContainer = this.determineContainer(appModel, buttonClicked);
     appStorageContainer.append(appView.$el);
+  },
+
+  determineContainer: function(appModel, buttonClicked) {
+    switch(buttonClicked) {
+      case 'genre':
+        return this.$el.find('#browse-genre');
+      case 'search':
+        return appModel.id ? this.$('#apps-in-database') : this.$('#apps-not-in-database');
+      case 'top':
+        return this.$('#top-apps');
+      case 'profile upvoted apps':
+        return $('#upvoted-apps-list');
+      case 'profile bookmarked apps':
+        return $('#bookmarked-apps-list');
+    }
   }
 });

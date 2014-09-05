@@ -8,7 +8,7 @@ Discovr.Views.App = Backbone.View.extend({
   },
 
   events: {
-    'click .upvote-button'  : 'increaseUpvoteCount',
+    'click .upvote-button'  : 'toggleUpvote',
     'click .send-to-device' : 'sendToDevice',
     'click .app-name'       : 'openShowPage'
   },
@@ -24,7 +24,7 @@ Discovr.Views.App = Backbone.View.extend({
     }
   },
 
-  increaseUpvoteCount: function() {
+  toggleUpvote: function() {
     if (Discovr.Models.currentUser.get('email')) {
       if (this.model.get('id')){
         this.model.fetch({
@@ -55,7 +55,8 @@ Discovr.Views.App = Backbone.View.extend({
 
     $('body').attr('class', 'app-detail');
 
-    Discovr.Views.appShow = new Discovr.Views.AppShow({model: this.model});
+    Discovr.Views.appShow.model = this.model;
+    Discovr.Views.appShow.render();
   }
 
 });

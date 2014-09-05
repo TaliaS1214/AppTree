@@ -10,6 +10,15 @@ Discovr.Routers.App = Backbone.Router.extend({
     // Creating modal for sign-in/sign-up
     Discovr.Views.modal = new Discovr.Views.Modal();
 
+    // Creating appShow for app show page
+    Discovr.Views.appShow = new Discovr.Views.AppShow();
+
+    // Creating appList for showing apps
+    Discovr.Views.appList = new Discovr.Views.AppList();
+
+    // Creating app collection
+    Discovr.Collections.apps = new Discovr.Collections.App();
+
     // Creating Search Bar
     Discovr.Views.search = new Discovr.Views.Search();
 
@@ -85,9 +94,12 @@ Discovr.Routers.App = Backbone.Router.extend({
     appModel.fetch({
       success: function() {
         Discovr.Views.genreList.renderAll();
-        Discovr.Views.appShow = new Discovr.Views.AppShow({model: appModel});
+        Discovr.Views.appShow.model = appModel;
+        Discovr.Views.appShow.render();
       }
     });
+
+
   }
 
 

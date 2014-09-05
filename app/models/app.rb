@@ -9,6 +9,8 @@ class App < ActiveRecord::Base
 
   validates :itunes_id, uniqueness: true
 
+  # before_save :join_screenshot_urls
+
   attr_accessor :upvotable
 
   def upvotable_status(user)
@@ -27,4 +29,8 @@ class App < ActiveRecord::Base
       end
     end
   end
+
+  # def join_screenshot_urls
+  #   self.screenshot_urls = self.screenshot_urls.join(',')
+  # end
 end
