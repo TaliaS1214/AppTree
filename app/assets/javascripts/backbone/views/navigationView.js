@@ -25,14 +25,14 @@ Discovr.Views.Navigation = Backbone.View.extend({
     Discovr.Routers.app.navigate('');
     $('body').attr('class', 'discover');
 
-    Discovr.Views.genreList = new Discovr.Views.GenreList({collection: Discovr.Collections.genres});
-    Discovr.Views.genreList.renderAll();
-
-    $('#app-show-page').empty().hide();
-    $('#profile-page').empty().hide();
+    // Clearing out content on other pages
+    $('#app-list-container').empty();
+    $('#profile-page').empty();
+    // Show the appropriate page
     $('#main-content').show();
 
-    $('#results-title').html('Top Apps on AppTree');
+    Discovr.Views.genreList = new Discovr.Views.GenreList({collection: Discovr.Collections.genres});
+    Discovr.Views.genreList.renderAll();
 
     Discovr.Collections.topApps = new Discovr.Collections.App();
     Discovr.Collections.topApps.url = '/apps/top';
@@ -40,6 +40,8 @@ Discovr.Views.Navigation = Backbone.View.extend({
       success: function() {
         Discovr.Views.appList = new Discovr.Views.AppList({collection: Discovr.Collections.topApps});
         Discovr.Views.appList.renderTopApps();
+        $('#results-title').html('Top Apps on AppTree');
+        $('#search-bar').val('');
       }
     });
   },
@@ -48,20 +50,24 @@ Discovr.Views.Navigation = Backbone.View.extend({
     Discovr.Routers.app.navigate('discover');
     $('body').attr('class', 'discover');
 
-    $('#app-show-page').empty().hide();
-    $('#profile-page').empty().hide();
-    $('#main-content').show();
-
-    $('#results-title').html('Find the Best Apps!');
+    // Clearing out content on other pages
     $('#app-list-container').empty();
+    $('#profile-page').empty();
+    $('#search-bar').val('');
+    // Show the appropriate page
+    $('#main-content').show();
+    $('#results-title').html('Find the Best Apps!');
+
     Discovr.Collections.genres.fetch({ reset: true });
   },
 
   loadProfilePage: function() {
     Discovr.Routers.app.navigate('users/profile');
 
-    $('#app-show-page').empty().hide();
-    $('#main-content').empty().hide();
+    // Clearing out content on other pages
+    $('#app-show-page').empty();
+    $('#main-content').hide();
+    // Show the appropriate page
     $('#profile-page').show();
 
     Discovr.Routers.app.navigate('profile');

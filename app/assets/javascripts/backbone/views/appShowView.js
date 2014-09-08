@@ -6,7 +6,7 @@ Discovr.Views.AppShow = Backbone.View.extend({
   },
 
   events: {
-    'click .send-to-device' : 'sendToDevice',
+    'click #app-detail-header .send-to-device' : 'sendToDevice',
     'click .upvote-button-show'  : 'toggleUpvote'
   },
 
