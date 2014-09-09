@@ -15,6 +15,7 @@ gem 'backbars'
 gem 'twilio-ruby'
 gem 'httparty'
 gem 'bcrypt', '~> 3.1.7'
+gem 'listjs-rails'
 group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'

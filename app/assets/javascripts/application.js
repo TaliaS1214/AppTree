@@ -15,6 +15,8 @@
 //= require underscore
 //= require backbone
 //= require handlebars
+//= require list
+//= require list.pagination
 //= require_self
 //= require_tree ./backbone/routers
 //= require_tree ./backbone/models
@@ -33,6 +35,14 @@ Discovr = {
 
 $(function() {
   $(document).foundation();
+
+  setTimeout(function() {
+    var appList = new List('app-list-container', {
+      valueNames: ['app-single'],
+      page: 10,
+      plugins: [ ListPagination({}) ]
+    });
+  }, 200);
 
   Discovr.Routers.app = new Discovr.Routers.App();
   Backbone.history.start();

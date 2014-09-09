@@ -23,6 +23,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
+    if @user.update!(user_params)
+      render json: @user.safe_info.to_json, status:200
+    end
   end
 
   def destroy

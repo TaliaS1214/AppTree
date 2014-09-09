@@ -1,6 +1,8 @@
 Discovr.Views.App = Backbone.View.extend({
   className: 'app-single',
 
+  tagName: 'li',
+
   initialize: function() {
     this.appTemplate = HandlebarsTemplates['apps/small'];
     this.listenTo(this.model, 'change', this.render);
@@ -40,14 +42,37 @@ Discovr.Views.App = Backbone.View.extend({
       this.$('.upvote').toggleClass('upvoted');
     }
     else {
-      $('.modal').empty().show().append(Discovr.Views.nav.signInTemplate());
+      $('.modal').empty().append(Discovr.Views.nav.signInTemplate()).show();
     }
   },
 
   sendToDevice: function() {
-    $.ajax( '/apps/'+ this.model.id + '/send', {
-      type: 'put'
-    });
+    if(Discovr.Models.currentUser.get('phone_number') != "") {
+      $.ajax( '/apps/'+ this.model.id + '/send', {
+        type: 'put',
+        success: function() {
+
+          // when user clicks send to phone button a confirmation
+          // is produced.
+          this.$('.confirm-send-to-phone').text('sent!');
+
+          setTimeout(function() {
+            this.$('.confirm-send-to-phone').fadeOut(400, function() {
+                this.$('.confirm-send-to-phone').remove();
+            }.bind(this));
+
+          }.bind(this), 1000);
+
+        }.bind(this)
+      });
+
+      $('<div class="confirm-send-to-phone">')
+        .appendTo(this.$el)
+        .text('processing...');
+    }
+    else {
+      $('.modal').append(Discovr.Views.modal.phoneNumberTemplate()).show();
+    }
   },
 
   openShowPage: function() {

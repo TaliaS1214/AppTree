@@ -12,7 +12,8 @@ Discovr.Views.AppList = Backbone.View.extend({
 
   renderGenreApps: function() {
     this.$el.empty();
-    this.$el.append('<div id="browse-genre">');
+    this.$el.append('<ul class="list" id="browse-genre">');
+    this.$el.append('<ul class="pagination">');
     this.renderAll('genre');
   },
 

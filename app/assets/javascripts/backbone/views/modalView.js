@@ -2,13 +2,14 @@ Discovr.Views.Modal = Backbone.View.extend({
   el: '.modal',
 
   initialize: function() {
-
+    this.phoneNumberTemplate = HandlebarsTemplates['users/phoneNumber'];
   },
 
   events: {
-    'click #form-sign-up-button' : 'createUser',
-    'click #form-sign-in-button' : 'signUserIn',
-    'click .close' : 'closeModal'
+    'click #form-sign-up-button'        : 'createUser',
+    'click #form-sign-in-button'        : 'signUserIn',
+    'click #phone-number-submit-button' : 'submitPhoneNumber',
+    'click .close'                      : 'closeModal'
   },
 
   createUser: function() {
@@ -54,6 +55,14 @@ Discovr.Views.Modal = Backbone.View.extend({
         this.closeModal();
       }.bind(this)
     });
+  },
+
+  submitPhoneNumber: function() {
+    event.preventDefault();
+    var phoneNumber = $('#phone-number-lone').val();
+    Discovr.Models.currentUser.set('phone_number', phoneNumber);
+    Discovr.Models.currentUser.save();
+    this.closeModal();
   },
 
   closeModal: function() {
