@@ -82,6 +82,14 @@ Discovr.Views.App = Backbone.View.extend({
 
     Discovr.Views.appShow.model = this.model;
     Discovr.Views.appShow.render();
+    Discovr.Views.commentList.collection = Discovr.Collections.comments
+    Discovr.Collections.comments.fetch({
+      url: '/apps/' + this.model.id + '/comments',
+      success: function() {
+        Discovr.Views.commentList.el = '#review-list';
+        Discovr.Views.commentList.renderAll();
+      }
+    });
   }
 
 });

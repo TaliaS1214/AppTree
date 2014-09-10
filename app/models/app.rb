@@ -3,6 +3,7 @@ class App < ActiveRecord::Base
 
   has_many :upvotes
   has_many :bookmarks
+  has_many :comments
 
   has_many :bookmarking_users, through: :bookmarks, source: :user
   has_many :upvoting_users, through: :upvotes, source: :user

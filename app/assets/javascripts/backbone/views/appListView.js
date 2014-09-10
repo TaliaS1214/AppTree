@@ -12,8 +12,9 @@ Discovr.Views.AppList = Backbone.View.extend({
 
   renderGenreApps: function() {
     this.$el.empty();
-    this.$el.append('<ul class="list" id="browse-genre">');
-    this.$el.append('<ul class="pagination">');
+    this.$el.append('<ul class="list" id="browse-genre-paid">');
+    this.$el.append('<ul class="list" id="browse-genre-free">');
+    //this.$el.append('<ul class="pagination">');
     this.renderAll('genre');
   },
 
@@ -42,7 +43,7 @@ Discovr.Views.AppList = Backbone.View.extend({
   determineContainer: function(appModel, buttonClicked) {
     switch(buttonClicked) {
       case 'genre':
-        return this.$el.find('#browse-genre');
+        return appModel.get('price') != "0.0" ? this.$('#browse-genre-paid') : this.$('#browse-genre-free');
       case 'search':
         return appModel.id ? this.$('#apps-in-database') : this.$('#apps-not-in-database');
       case 'top':

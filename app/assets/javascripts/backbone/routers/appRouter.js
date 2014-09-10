@@ -16,8 +16,14 @@ Discovr.Routers.App = Backbone.Router.extend({
     // Creating appList for showing apps
     Discovr.Views.appList = new Discovr.Views.AppList();
 
+    // Creating commentList view
+    Discovr.Views.commentList = new Discovr.Views.CommentList();
+
     // Creating app collection
     Discovr.Collections.apps = new Discovr.Collections.App();
+
+    // Creating comment collection
+    Discovr.Collections.comments = new Discovr.Collections.Comment();
 
     // Creating Search Bar
     Discovr.Views.search = new Discovr.Views.Search();
@@ -55,17 +61,15 @@ Discovr.Routers.App = Backbone.Router.extend({
   discover: function() {
     $('body').attr('class', 'discover');
     $('#genre-list').empty();
+    var showGenres = function() { Discovr.Views.genreList.renderAll(); }
     Discovr.Models.currentUser.fetch({
-      success: function() {
-        Discovr.Views.genreList.renderAll();
-      }
+      success: showGenres,
+      error: showGenres
     });
   },
 
   genre: function(genreName) {
     $('body').attr('class', 'browse-genre');
-    // this.$el.siblings().removeClass('active');
-    // this.$el.addClass('active');
     Discovr.Collections.apps = new Discovr.Collections.App();
     Discovr.Collections.apps.url = '/' + genreName + '/apps';
     Discovr.Collections.apps.fetch({
@@ -96,6 +100,14 @@ Discovr.Routers.App = Backbone.Router.extend({
         Discovr.Views.genreList.renderAll();
         Discovr.Views.appShow.model = appModel;
         Discovr.Views.appShow.render();
+
+        Discovr.Views.commentList.collection = Discovr.Collections.comments;
+        Discovr.Collections.comments.url = '/apps/' + id + '/comments';
+        Discovr.Collections.comments.fetch({
+          success: function() {
+            Discovr.Views.commentList.renderAll();
+          }
+        });
       }
     });
 

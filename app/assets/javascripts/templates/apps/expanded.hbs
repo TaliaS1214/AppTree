@@ -1,16 +1,20 @@
 
 <div id="app-detail-sidebar">
+
   <div class="artwork">
     <img class="app-icon-large" src="{{large_avatar_url}}" />
     <span class="mask"></span>
   </div>
+
   <a href="https://twitter.com/share"
     target="_blank"
     class="twitter-share-button"
     data-url="{{currentURL}}"
     data-lang="en">Tweet
   </a>
+
 </div>
+
 <div id="app-detail-main" class="clearfix">
   <div id="app-detail-header">
 
@@ -29,20 +33,32 @@
         <p class="app-creator">By {{creator}}</p>
       </span>
     </div>
+
     <div id="app-links">
       <a class="app-store-link" href="{{track_view_url}}" target="_blank" title="Download {{name}} in App Store"></a>
       <a class="send-to-device">Send to device</a>
     </div>
-  </div>
-  <div id="screenshots">
-    <div id="images-container">
-      {{#each screenshot_urls}}
-        <img src="{{this}}" width="230" />
-      {{/each}}
-    </div>
-  </div>
 
-  <div id="description">
-    <p>{{description}}</p>
-  </div>
+    </div>
+
+    <div id="screenshots">
+      <div id="images-container">
+        {{#each screenshot_urls}}
+          <img src="{{this}}" width="230" />
+        {{/each}}
+      </div>
+    </div>
+
+    <div id="description">
+      <p>{{description}}</p>
+    </div>
+
+    <hr>
+
+    <button id="add-review-button">Write a Review</button>
+    <div id="review-input" style="display: none">
+      <textarea id="review-input-box" rows="8" cols="40" placeholder = "Write your review here..."></textarea>
+      <button class="small" id="submit-review-button">Submit</button>
+    </div>
+    <ul id="review-list"></ul>
 </div>

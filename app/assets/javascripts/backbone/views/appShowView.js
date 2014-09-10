@@ -6,8 +6,10 @@ Discovr.Views.AppShow = Backbone.View.extend({
   },
 
   events: {
-    'click #app-detail-header .send-to-device' : 'sendToDevice',
-    'click .upvote-button-show'  : 'toggleUpvote'
+    'click #app-detail-header .send-to-device'  : 'sendToDevice',
+    'click .upvote-button-show'                 : 'toggleUpvote',
+    'click #add-review-button'                  : 'showReviewDiv',
+    'click #submit-review-button'               : 'submitReview'
   },
 
   render: function() {
@@ -41,5 +43,38 @@ Discovr.Views.AppShow = Backbone.View.extend({
     else {
       $('.modal').empty().show().append(Discovr.Views.nav.signInTemplate());
     }
+  },
+
+  showReviewDiv: function() {
+    $('#review-input').show();
+  },
+
+  submitReview: function() {
+    var reviewText = $('#review-input-box').val();
+    var commentUrl = '/apps/' + this.model.id + '/comments';
+    $.ajax({
+      type: 'POST',
+      url: commentUrl,
+      data: {
+        comment: {
+          content: reviewText,
+          user_id: Discovr.Models.currentUser.id,
+          app_id: this.model.id
+        }
+      },
+      success: function(data) {
+        // Create a new comment model
+        var commentModel = new Discovr.Models.Comment({
+          content: data['content'],
+          user: data['user'],
+          created_at: data['created_at']
+        });
+        // Create a new comment view
+        var commentView = new Discovr.Views.Comment({model: commentModel});
+        // Add the new view to the comment list view
+        $('#review-list').prepend(commentView.$el);
+      }
+    });
   }
+
 });
