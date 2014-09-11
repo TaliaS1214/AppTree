@@ -14,6 +14,7 @@ Discovr.Views.AppShow = Backbone.View.extend({
 
   render: function() {
     this.model.set('currentURL', document.URL);
+    debugger;
     this.model.set('screenshot_urls', this.model.get('screenshot_urls').split(','));
     this.$el.html(this.appShowTemplate(this.model.toJSON()));
   },
@@ -46,7 +47,11 @@ Discovr.Views.AppShow = Backbone.View.extend({
   },
 
   showReviewDiv: function() {
-    $('#review-input').show();
+    if (Discovr.Models.currentUser.get('email')) {
+      $('#review-input').show();
+    } else {
+      $('.modal').empty().show().append(Discovr.Views.nav.signInTemplate());
+    }
   },
 
   submitReview: function() {

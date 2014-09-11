@@ -42,7 +42,8 @@ Discovr.Routers.App = Backbone.Router.extend({
     'discover'            : 'discover',
     ':genreName/apps'     : 'genre',
     'profile'             : 'userProfile',
-    'apps/:id'            : 'appSinglePage'
+    'apps/:id'            : 'appSinglePage',
+    'signin-or-signup'    : 'signInPage'
   },
 
   index: function() {
@@ -110,8 +111,11 @@ Discovr.Routers.App = Backbone.Router.extend({
         });
       }
     });
+  },
 
-
+  signInPage: function() {
+    this.index();
+    $('.modal').append(Discovr.Views.nav.signInTemplate()).show();
   }
 
 

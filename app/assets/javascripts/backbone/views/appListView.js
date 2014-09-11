@@ -6,7 +6,7 @@ Discovr.Views.AppList = Backbone.View.extend({
 
   renderTopApps: function() {
     this.$el.empty();
-    this.$el.append('<div id="top-apps">');
+    this.$el.append('<ul id="top-apps">');
     this.renderAll('top');
   },
 

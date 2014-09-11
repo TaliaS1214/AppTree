@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.welcome_email(@user).deliver
       session[:current_user] = @user.id
       render json: @user.safe_info.to_json, status: 200
     end
