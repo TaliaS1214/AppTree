@@ -42,7 +42,7 @@ Discovr.Views.App = Backbone.View.extend({
       this.$('.upvote').toggleClass('upvoted');
     }
     else {
-      $('.modal').empty().append(Discovr.Views.nav.signInTemplate()).show();
+      Discovr.Views.nav.loadSignInPage();
     }
   },
 

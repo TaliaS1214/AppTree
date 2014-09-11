@@ -75,8 +75,8 @@ Discovr.Views.Navigation = Backbone.View.extend({
   },
 
   loadSignInPage: function() {
+    Discovr.Views.modal.oldUrl = document.URL.replace('http://localhost:3000/#', '');
     Discovr.Routers.app.navigate('signin-or-signup');
-
     $('.modal').empty().show().append(this.signInTemplate());
   },
 

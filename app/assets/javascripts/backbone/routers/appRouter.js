@@ -47,6 +47,7 @@ Discovr.Routers.App = Backbone.Router.extend({
   },
 
   index: function() {
+    $('#app-list-container').empty();
     $('body').attr('class', 'home');
     Discovr.Collections.topApps = new Discovr.Collections.App();
     Discovr.Collections.topApps.url = '/apps/top';
@@ -60,6 +61,7 @@ Discovr.Routers.App = Backbone.Router.extend({
   },
 
   discover: function() {
+    $('#app-list-container').empty();
     $('body').attr('class', 'discover');
     $('#genre-list').empty();
     var showGenres = function() { Discovr.Views.genreList.renderAll(); }
@@ -70,6 +72,7 @@ Discovr.Routers.App = Backbone.Router.extend({
   },
 
   genre: function(genreName) {
+    $('#app-list-container').empty();
     $('body').attr('class', 'browse-genre');
     Discovr.Collections.apps = new Discovr.Collections.App();
     Discovr.Collections.apps.url = '/' + genreName + '/apps';

@@ -13,9 +13,10 @@ Discovr.Views.AppShow = Backbone.View.extend({
   },
 
   render: function() {
-    this.model.set('currentURL', document.URL);
-    debugger;
+    //this.model.set('currentURL', document.URL);
     this.model.set('screenshot_urls', this.model.get('screenshot_urls').split(','));
+    var genreName = $('#results-title').html();
+    $('#results-title').html('<strong>' + genreName + '</strong>' + ' > ' + this.model.get('name'));
     this.$el.html(this.appShowTemplate(this.model.toJSON()));
   },
 
@@ -42,7 +43,7 @@ Discovr.Views.AppShow = Backbone.View.extend({
       this.$('.upvote').toggleClass('upvoted');
     }
     else {
-      $('.modal').empty().show().append(Discovr.Views.nav.signInTemplate());
+      Discovr.Views.nav.loadSignInPage();
     }
   },
 

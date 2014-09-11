@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
   def as_json(option)
     super.tap do |hash|
       hash['user'] = hash['user']['first_name'] + ' ' + hash['user']['last_name']
-      hash['created_at'] = hash['created_at'].strftime('%H:%M %m-%d')
+      hash['created_at'] = hash['created_at'].strftime('%l:%M%P on %b. %d, %Y')
     end
   end
 end

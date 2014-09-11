@@ -68,8 +68,8 @@ Discovr.Views.Modal = Backbone.View.extend({
   },
 
   closeModal: function() {
-    this.$el.empty();
-    this.$el.hide();
+    Discovr.Routers.app.navigate(this.oldUrl);
+    this.$el.empty().hide();
   }
 
 });

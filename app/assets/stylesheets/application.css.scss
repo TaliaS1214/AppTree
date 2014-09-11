@@ -70,6 +70,9 @@ table {
 .clearfix { display: block; }
 /* close commented backslash hack */
 #profile-page{
+
+	min-height: 600px;
+
   &:after {
      visibility: hidden;
      display: block;
@@ -514,7 +517,7 @@ header.top-bar{
       background-color: rgb(248, 248, 248);
       box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.24);
       width: 680px;
-      height: 430px;
+      max-height: 430px;
       clear: both;
       margin-left: 20px;
       overflow: scroll;
@@ -523,8 +526,8 @@ header.top-bar{
       #images-container{
         width: 1280px;
         img{
-          margin: 12px 0 0 12px;
-           position: relative;
+          margin: 12px 0 12px 12px;
+          position: relative;
         }
       }
     }
