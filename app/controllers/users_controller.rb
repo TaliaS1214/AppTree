@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       UserMailer.welcome_email(@user).deliver
       session[:current_user] = @user.id
       render json: @user.safe_info.to_json, status: 200
+    else
+      render json: { errors: @user.errors.full_messages }.to_json, status: 200
     end
   end
 

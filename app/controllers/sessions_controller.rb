@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:current_user] = @user.id
       render json: @user.safe_info.to_json, status: 200
+    else
+      render json: { errors: ['Incorrect username or password.'] }, status: 422
     end
   end
 
