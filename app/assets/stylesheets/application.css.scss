@@ -196,11 +196,6 @@ header.top-bar{
   border-bottom: 1px solid #eee;
 }
 
-#browse-genre-paid, #browse-genre-free{
-  width: 400px;
-  float: left;
-}
-
 #side-nav {
   width: 185px;
   display: block;
@@ -637,6 +632,24 @@ header.top-bar{
   margin-top: 10px;
   float: left;
   width: 800px;
+
+	.paid-apps {
+		width: 400px;
+		margin: 0px;
+		display: inline-block;
+
+		h2 {
+		}
+	}
+
+	.free-apps {
+		width: 400px;
+		margin: 0px;
+		display: inline-block;
+
+		h2 {
+		}
+	}
 
   .app-single {
     width: 450px;
