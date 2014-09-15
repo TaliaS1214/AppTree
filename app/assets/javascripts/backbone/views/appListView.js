@@ -12,8 +12,8 @@ Discovr.Views.AppList = Backbone.View.extend({
 
   renderGenreApps: function() {
     this.$el.empty();
-    var paidApps = $('<div class="paid-apps">').appendTo(this.$el).append('<h2 class="paid-header">Paid</h2>');
-    var freeApps = $('<div class="free-apps">').appendTo(this.$el).append('<h2 class="free-header">Free</h2>');
+    var paidApps = $('<div class="paid-apps">').appendTo(this.$el).append('<h2 class="paid-header">Paid Apps</h2>');
+    var freeApps = $('<div class="free-apps">').appendTo(this.$el).append('<h2 class="free-header">Free Apps</h2>');
     paidApps.append('<ul class="list" id="browse-genre-paid">');
     freeApps.append('<ul class="list" id="browse-genre-free">');
     //this.$el.append('<ul class="pagination">');

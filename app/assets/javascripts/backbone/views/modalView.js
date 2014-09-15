@@ -19,8 +19,7 @@ Discovr.Views.Modal = Backbone.View.extend({
 
     var userObject = {
       user: {
-        first_name: $('#sign-up-first').val(),
-        last_name: $('#sign-up-last').val(),
+        username: $('#sign-up-username').val(),
         email: $('#sign-up-email').val(),
         password: $('#sign-up-password').val(),
         password_confirmation: $('#sign-up-password-confirmation').val(),

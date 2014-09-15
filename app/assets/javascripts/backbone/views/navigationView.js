@@ -76,9 +76,8 @@ Discovr.Views.Navigation = Backbone.View.extend({
 
   loadSignInPage: function() {
     // For development
-    Discovr.Views.modal.oldUrl = document.URL.replace('http://localhost:3000/#', '');
-    // For pushing to Heroku
-    //Discovr.Views.modal.oldUrl = document.URL.replace('http://apptree.herokuapp.com/#', '');
+    //Discovr.Views.modal.oldUrl = document.URL.replace('http://localhost:3000/#', '');
+    Discovr.Views.modal.oldUrl = document.URL.split('#')[1]
     Discovr.Routers.app.navigate('signin-or-signup');
     $('.modal').empty().show().append(this.signInTemplate());
   },
