@@ -154,6 +154,52 @@ header.top-bar{
     border-bottom: 1px solid #ddd;
   }
 }
+#review-input, #review-list{
+  clear: both;
+}
+#reviews-container{
+  padding:  20px 20px 20px 35px;
+  width: 680px;
+}
+#reviews-container h2{
+  float: left;
+  padding-top:8px;
+  font-size:20px;
+
+}
+#add-review-button{
+  float: right;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.review-timestamp{
+  float: right;
+  color: #777;
+}
+.review-list{
+  padding-top: 30px;
+}
+.review-user{
+  float: left;
+  color: #777;
+}
+#reviews-container button{
+  border-radius: 3px;
+}
+#review-input textarea{
+  border-radius: 6px;
+}
+.review-content{
+  clear: both;
+  padding: 3px 0 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+#browse-genre-paid, #browse-genre-free{
+  width: 400px;
+  float: left;
+}
 
 #side-nav {
   width: 185px;
@@ -279,7 +325,8 @@ header.top-bar{
 	z-index: 100;
 }
 
-#user-auth-modal {
+
+#user-auth-modal, #phone-number-modal {
 	background: white;
 	border-radius: 8px 14px 14px 8px;
 	width: 850px;
@@ -343,6 +390,20 @@ header.top-bar{
   		color: #fff;
 		}
 	}
+}
+#phone-number-modal{
+  width: 500px;
+  height: 290px;
+  #sign-up-half{
+    width: auto;
+  }
+  label{
+    margin-top:10px;
+  }
+  input[type="submit"]{
+    width: auto;
+    padding: 10px 20px;
+  }
 }
 
 .row{
