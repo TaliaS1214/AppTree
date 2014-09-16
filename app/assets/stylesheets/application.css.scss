@@ -228,6 +228,12 @@ header.top-bar{
   display: block;
   overflow: scroll;
   float: left;
+
+	#genre-column-title{
+		font-weight: bold;
+		font-size: 16px;
+	}
+
   ul{
     padding-top: 5px ;
   }
@@ -621,24 +627,18 @@ header.top-bar{
     }
 
 		#app-detail-header {
-
-			.upvote {
-
-				.upvote-button-show {
-
-					&.upvoted{
-						.upvote-count{
-							color: #fd8450
-
-						}
-						.upvote-button{
-							background: url(image-path('upvoted.png')) 0 0 no-repeat;
-							background-size: 21px 21px;
-							cursor: pointer;
-						}
+			.app-name {
+				font-size: 50px;
+			}
+			.upvote.upvoted{
+					.upvote-count{
+						color: #fd8450
 					}
-				}
-
+					.upvote-button-show{
+						background: url(image-path('upvoted.png')) 0 0 no-repeat;
+						background-size: 34px 34px;
+						cursor: pointer;
+					}
 			}
 		}
 
@@ -706,6 +706,10 @@ header.top-bar{
   margin-top: 10px;
   float: left;
   width: 800px;
+
+	.app-column-header{
+		margin: 10px 0px 20px 20px;
+	}
 
 	.paid-apps {
 		width: 400px;

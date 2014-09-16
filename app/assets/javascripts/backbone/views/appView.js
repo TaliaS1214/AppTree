@@ -47,7 +47,10 @@ Discovr.Views.App = Backbone.View.extend({
   },
 
   sendToDevice: function() {
-    if(Discovr.Models.currentUser.get('phone_number') != "") {
+    var currentPhoneNumber = Discovr.Models.currentUser.get('phone_number');
+    if (!currentPhoneNumber) {
+      $('.modal').append(Discovr.Views.nav.signInTemplate()).show();
+    } else if(currentPhoneNumber != "") {
       $.ajax( '/apps/'+ this.model.id + '/send', {
         type: 'put',
         success: function() {
@@ -69,8 +72,7 @@ Discovr.Views.App = Backbone.View.extend({
       $('<div class="confirm-send-to-phone">')
         .appendTo(this.$el)
         .text('processing...');
-    }
-    else {
+    } else {
       $('.modal').append(Discovr.Views.modal.phoneNumberTemplate()).show();
     }
   },
