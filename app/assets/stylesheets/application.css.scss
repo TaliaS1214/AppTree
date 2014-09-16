@@ -352,7 +352,7 @@ header.top-bar{
 	background: white;
 	border-radius: 8px 14px 14px 8px;
 	width: 850px;
-	height: 420px;
+	height: 520px;
   margin: 80px auto;
   position: relative;
 	.close{
@@ -394,17 +394,22 @@ header.top-bar{
 	}
 
 	#sign-up-half {
-		height: 350px;
+		height: 520px;
 		width: 330px;
 	  padding: 20px;
 		display: inline-block;
+
+		#phone-number-disclaimer {
+			font-size: 12px;
+		}
+
 	}
 
 	#sign-in-half {
 	  background: #2f363d;
 	  float: right;
 	  padding: 20px;
-		height: 420px;
+		height: 520px;
 		width: 340px;
 	  border-radius: 0 8px 8px 0;
 		display: inline-block;
