@@ -150,6 +150,7 @@ header.top-bar{
   width: 800px;
   padding-bottom: 10px;
   font-weight: 600;
+
   .browse-genre &, .discover &{
     border-bottom: 1px solid #ddd;
   }
@@ -522,8 +523,27 @@ header.top-bar{
   text-align: center;
 }
 .app-detail #results-title{
-  visibility: hidden;
-  margin-top: 10px;
+  margin-top: 40px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+
+	.app-show-header {
+		float: left;
+		width: 400px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+
+		#genre-name {
+			margin-right: 10px;
+		}
+
+		#app-name {
+			margin-left: 10px;
+		}
+
+	}
+
 }
 .app-detail #app-list-container{
   width: 800px;
@@ -649,6 +669,12 @@ header.top-bar{
 
 		h2 {
 		}
+	}
+
+	.empty {
+		margin: 10px 5px;
+		float: left;
+		color: #f97331;
 	}
 
   .app-single {

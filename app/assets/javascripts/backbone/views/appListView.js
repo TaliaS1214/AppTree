@@ -14,10 +14,16 @@ Discovr.Views.AppList = Backbone.View.extend({
     this.$el.empty();
     var paidApps = $('<div class="paid-apps">').appendTo(this.$el).append('<h2 class="paid-header">Paid Apps</h2>');
     var freeApps = $('<div class="free-apps">').appendTo(this.$el).append('<h2 class="free-header">Free Apps</h2>');
-    paidApps.append('<ul class="list" id="browse-genre-paid">');
-    freeApps.append('<ul class="list" id="browse-genre-free">');
+    var paidList = $('<ul class="list" id="browse-genre-paid">').appendTo(paidApps);
+    var freeList = $('<ul class="list" id="browse-genre-free">').appendTo(freeApps);
     //this.$el.append('<ul class="pagination">');
     this.renderAll('genre');
+    if (paidList.children().length == 0) {
+      paidList.append('<li class="empty">There are no paid apps for this genre yet!</li>')
+    }
+    if (freeList.children().length == 0) {
+      freeList.append('<li class="empty">There are no free apps for this genre yet!</li>')
+    }
   },
 
   renderSearchResults: function() {

@@ -105,6 +105,7 @@ Discovr.Routers.App = Backbone.Router.extend({
       success: function() {
         Discovr.Views.genreList.renderAll();
         Discovr.Views.appShow.model = appModel;
+
         Discovr.Views.appShow.render();
 
         Discovr.Views.commentList.collection = Discovr.Collections.comments;

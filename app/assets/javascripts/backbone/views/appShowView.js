@@ -15,8 +15,9 @@ Discovr.Views.AppShow = Backbone.View.extend({
   render: function() {
     //this.model.set('currentURL', document.URL);
     this.model.set('screenshot_urls', this.model.get('screenshot_urls').split(','));
-    var genreName = $('#results-title').html();
-    $('#results-title').html('<strong>' + genreName + '</strong>' + ' > ' + this.model.get('name'));
+    var genreName = this.model.get('tags').split(',')[0];
+    var appName = this.model.get('name');
+    $('#results-title').html('<span class="app-show-header"><strong id="genre-name">' + genreName + '</strong>' + ' > ' + '<span id="app-name">' + appName + '</span>'+ '</span>');
     this.$el.html(this.appShowTemplate(this.model.toJSON()));
   },
 
@@ -79,6 +80,7 @@ Discovr.Views.AppShow = Backbone.View.extend({
         var commentView = new Discovr.Views.Comment({model: commentModel});
         // Add the new view to the comment list view
         $('#review-list').prepend(commentView.$el);
+        $('#review-input-box').val('');
       }
     });
   }
