@@ -1,15 +1,22 @@
 <div id="user-show">
-  <h2 id="user-name">{{username}}</h2>
-  <h3 id="first-and-last-name">({{first_name}} {{last_name}})</h3>
+
+  <div id="user-info">
+    <h2 id="username">{{username}}</h2>
+    <h3 -d="user-email">{{email}}</h3>
+  </div>
 
   <div id="app-list-container">
+
     <div id="upvoted-apps">
       <h2>Apps I've upvoted:</h2>
       <ul id="upvoted-apps-list"></ul>
     </div>
+
     <div id="bookmarked-apps">
       <h2>Apps I've sent to my phone:</h2>
       <ul id="bookmarked-apps-list"></ul>
     </div>
+
   </div>
+
 </div>

@@ -79,6 +79,11 @@ Discovr.Views.App = Backbone.View.extend({
     Discovr.Routers.app.navigate('apps/' + this.model.id);
 
     $('body').attr('class', 'app-detail');
+    // Emptying not-needed divs
+    $('#app-list-container').empty();
+    $('#profile-page').empty();
+    // Show the appropriate page
+    $('#main-content').show();
 
     Discovr.Views.appShow.model = this.model;
     Discovr.Views.appShow.render();
