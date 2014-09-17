@@ -57,7 +57,7 @@ Discovr.Views.App = Backbone.View.extend({
 
           // when user clicks send to phone button a confirmation
           // is produced.
-          this.$('.confirm-send-to-phone').text('sent!');
+          this.$('.confirm-send-to-phone').text('Sent!');
 
           setTimeout(function() {
             this.$('.confirm-send-to-phone').fadeOut(400, function() {
@@ -71,7 +71,7 @@ Discovr.Views.App = Backbone.View.extend({
 
       $('<div class="confirm-send-to-phone">')
         .appendTo(this.$el)
-        .text('processing...');
+        .text('Sending...');
     } else {
       $('.modal').append(Discovr.Views.modal.phoneNumberTemplate()).show();
     }

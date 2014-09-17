@@ -176,10 +176,7 @@ header.top-bar{
   width: 800px;
   padding-bottom: 10px;
   font-weight: 600;
-
-  .browse-genre &, .discover &{
-    border-bottom: 1px solid #ddd;
-  }
+	border-bottom: 1px solid #ddd;
 }
 #review-input, #review-list{
   clear: both;
@@ -283,7 +280,7 @@ header.top-bar{
     width: 350px;
     margin-bottom:10px;
     border-bottom: 1px solid #ddd;
-    margin-top: -5px;
+    margin-top: 10px;
   }
   #apps-in-database{
     width: 400px;
@@ -727,6 +724,9 @@ header.top-bar{
 
 		h2 {
 		}
+	}
+
+	.confirm-send-to-phone {
 	}
 
 	.empty {
