@@ -18,7 +18,7 @@ The back end of AppTree uses Rails, and the front end uses Javascript, jQuery,
 and your good old friend Backbone. Input regarding how to improve AppTree
 is always welcomed.
 
-[Visit the site](apptree.herokuapp.com)
+[Visit the site](http://apptree.herokuapp.com)
 
 
 
